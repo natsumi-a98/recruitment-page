@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BaseButton from "./common/baseButton";
+import BaseButton from "../common/baseButton";
 
 const BigEntryButton = styled(BaseButton)`
   height: 180px;
@@ -9,11 +9,7 @@ const BigEntryButton = styled(BaseButton)`
 `;
 
 const FooterEntryButton = () => {
-  return (
-    <BigEntryButton>
-      ENTRY
-    </BigEntryButton>
-  );
+  return <BigEntryButton>ENTRY</BigEntryButton>;
 };
 
 export default FooterEntryButton;

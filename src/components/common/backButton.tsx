@@ -1,19 +1,15 @@
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import CircleButton from "./circleButton";
 
 interface BackButtonProps {
-  scrollTargetRef: React.RefObject<HTMLElement>;
+  onClick: () => void;
 }
 
-const BackButton = ({ scrollTargetRef }: BackButtonProps) => {
-  const handleClick = () => {
-    scrollTargetRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
+const BackButton = ({ onClick }: BackButtonProps) => {
   return (
-    <CircleButton onClick={handleClick}>
+    <CircleButton onClick={onClick}>
+      <ArrowBackIosIcon />
       BACK
-      <ArrowBackIcon />
     </CircleButton>
   );
 };

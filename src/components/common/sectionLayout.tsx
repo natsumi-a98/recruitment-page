@@ -4,6 +4,7 @@ import { ReactNode, forwardRef } from "react";
 interface SectionLayoutProps {
   children: ReactNode;
   as?: React.ElementType;
+  id?: string;
 }
 
 const SectionContainer = styled.section<SectionLayoutProps>`
@@ -16,9 +17,9 @@ const SectionContainer = styled.section<SectionLayoutProps>`
 `;
 
 const SectionLayout = forwardRef<HTMLElement, SectionLayoutProps>(
-  ({ children, as = "section" }, ref) => {
+  ({ children, as = "section", id }, ref) => {
     return (
-      <SectionContainer as={as} ref={ref}>
+      <SectionContainer as={as} ref={ref} id={id}>
         {children}
       </SectionContainer>
     );

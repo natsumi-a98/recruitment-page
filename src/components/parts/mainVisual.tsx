@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MainVisualContainer = styled.section`
+const MainVisualContainer = styled.section<{ id?: string }>`
   position: relative;
   width: 100%;
   height: calc(100vh - 100px);
@@ -11,19 +11,23 @@ const MainVisualContainer = styled.section`
   padding: 0;
 `;
 
-const TitleContainer = styled.div`
+
+const MainVisualTitleContainer = styled.div`
   text-align: center;
 `;
 
 const MainTitle = styled.h1`
   font-size: 128px;
   font-weight: bold;
+  line-height: 0.9;
   margin: 0;
 `;
 
+
 const SubTitle = styled.h2`
   font-size: 96px;
-  font-weight: normal;
+  font-weight: lighter;
+  line-height: 0.9;
   margin: 0;
 `;
 
@@ -46,13 +50,15 @@ const DescriptionText = styled.p`
   margin-bottom: 0;
 `;
 
+
 const MainVisual = () => {
   return (
-    <MainVisualContainer>
-      <TitleContainer>
+    <MainVisualContainer id="main-visual">
+      <MainVisualTitleContainer>
         <MainTitle>FEDELTA</MainTitle>
         <SubTitle>RECRUIT</SubTitle>
-      </TitleContainer>
+      </MainVisualTitleContainer>
+
       <BottomTextContainer>
         <HashTagText>#AIを標準基準に</HashTagText>
         <DescriptionText>
