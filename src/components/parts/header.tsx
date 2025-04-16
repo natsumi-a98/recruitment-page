@@ -151,18 +151,6 @@ const MobileNavItem = styled.div`
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  // メディアクエリに基づいてwindowサイズの変更を監視
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -219,8 +207,7 @@ const Header = () => {
         ))}
       </MobileNav>
 
-      {/* スマホ版ではエントリーボタンを非表示 */}
-      {windowWidth > 500 && <HeaderEntryButton />}
+      <HeaderEntryButton />
     </HeaderContainer>
   );
 };

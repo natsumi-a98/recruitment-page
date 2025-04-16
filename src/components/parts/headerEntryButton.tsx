@@ -7,6 +7,10 @@ const SmallEntryButton = styled(BaseButton)`
   padding: 0 20px;
   border-radius: 30px;
   font-size: 32px;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const ArrowForwardIosIconStyled = styled(ArrowForwardIosIcon)`
