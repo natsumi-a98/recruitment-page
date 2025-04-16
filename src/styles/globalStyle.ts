@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: 5;
   }
 
   main {

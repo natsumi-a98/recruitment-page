@@ -8,16 +8,19 @@ import { useRef, useState } from "react";
 
 const slides = [<Inexperienced />, <AfterTraining />];
 
-const SupportSectionTextBlock = styled.div``;
+const SupportSectionTextBox = styled.div``;
 
 const HighlightText = styled.span`
   background-color: #00e676;
   padding: 0 4px;
 `;
 
-const RootSection = styled.div`
+const RootContainer = styled.div`
   margin-top: 200px;
+  width: 100%;
+  max-width: 1100px;
   position: relative;
+  margin: 0 auto;
 `;
 
 const HorizontalScrollWrapper = styled.div`
@@ -47,21 +50,21 @@ const ArrowButton = styled.button`
 `;
 
 const ArrowButtonLeft = styled(ArrowButton)`
-  left: 0;
+  left: -48px;
 `;
 
 const ArrowButtonRight = styled(ArrowButton)`
-  right: 0;
+  right: -48px;
 `;
 
 const SupportPage = ({ onClose }: { onClose: () => void }) => {
-  // スクロール対象の要素参照
+  // スライド対象の要素参照
   const scrollRef = useRef<HTMLDivElement>(null);
   // 現在のスライドインデックス
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalSlides = slides.length;
 
-  // 指定インデックスのスライドにスクロールする処理
+  // 指定インデックスのスライドにスライドする処理
   const scrollToIndex = (index: number) => {
     if (scrollRef.current) {
       const scrollWidth = scrollRef.current.clientWidth;
@@ -89,7 +92,7 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
     <main>
       <ViewMoreTitle titleText="Support" />
 
-      <SupportSectionTextBlock>
+      <SupportSectionTextBox>
         <h2>「新しいモノ」をキャッチアップする能力</h2>
         <p>
           新たな業務に従事し、その業務を習得・改善するための学習時間があるように、
@@ -117,9 +120,9 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
           <br />
           業界未経験の方でも手厚い研修制度でWEBスキルを学びながら働くことができます。
         </p>
-      </SupportSectionTextBlock>
+      </SupportSectionTextBox>
 
-      <RootSection>
+      <RootContainer>
         <h2>経験・未経験で進むルート</h2>
         <ArrowButtonLeft onClick={handleScrollLeft}>←</ArrowButtonLeft>
         {/** キャリアイメージをスライダーで表示 */}
@@ -129,7 +132,7 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
           ))}
         </HorizontalScrollWrapper>
         <ArrowButtonRight onClick={handleScrollRight}>→</ArrowButtonRight>
-      </RootSection>
+      </RootContainer>
 
       <CircleButtonWrapper>
         <BackButton onClick={onClose} />

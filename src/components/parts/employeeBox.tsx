@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BaseButton from "../common/baseButton";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Box = styled.div`
   width: 256px;
@@ -24,8 +25,6 @@ const InfoWrapper = styled.div`
   gap: 5px;
   align-items: center;
 `;
-
-
 
 const YearsText = styled.span`
   font-size: 12px;
@@ -53,6 +52,11 @@ const ClickButton = styled(BaseButton)`
   border-radius: 17.5px;
 `;
 
+const ArrowForwardIosIconStyled = styled(ArrowForwardIosIcon)`
+  font-size: 16px !important;
+  margin: 0;
+`;
+
 interface EmployeeBoxProps {
   imageUrl: string; // 社員画像
   years: number; // 入社年数
@@ -68,10 +72,12 @@ const EmployeeBox = ({ imageUrl, years, job, onClick }: EmployeeBoxProps) => {
         <YearsText>
           入社<strong>{years}</strong>年目
         </YearsText>
-        
+
         <JobTag>{job}</JobTag>
       </InfoWrapper>
-      <ClickButton onClick={onClick}>Click! &gt;</ClickButton>
+      <ClickButton onClick={onClick}>
+        Click! <ArrowForwardIosIconStyled />
+      </ClickButton>
     </Box>
   );
 };

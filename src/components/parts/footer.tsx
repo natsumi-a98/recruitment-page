@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FooterEntryButton from "./footerEntryButton";
@@ -134,6 +134,27 @@ const Copyright = styled.small`
   text-align: right;
 `;
 
+const sway = keyframes`
+  0% { transform: rotate(30deg) translateX(0); }
+  50% { transform: rotate(30deg) translateX(15px); }
+  100% { transform: rotate(30deg) translateX(0); }
+`;
+
+const RobotImage = styled.img`
+  position: absolute;
+  margin: 0 calc(50% - 50vw);
+  left: 0;
+  bottom: 180px;
+  height: 45vh;
+  animation: ${sway} 1.5s ease-in-out infinite;
+  z-index: 200;
+`;
+
+const LeftSideWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Footer = () => {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -168,6 +189,7 @@ const Footer = () => {
         </CenterButtonWrapper>
 
         <FooterTextWrapper>
+          <RobotImage src="public/images/ロボ5.png" alt="ロボ5" />
           <AccessInfo>
             <p>アクセス</p>
             <p>
