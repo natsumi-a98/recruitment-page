@@ -30,15 +30,15 @@ const BodyTextBlock = styled.div`
 
 const float = keyframes`
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-50px); }
   100% { transform: translateY(0px); }
 `;
 
 const GorillaBubble = styled.img`
   position: absolute;
-  width: 260px;
-  height: 260px;
-  right: 40%;
+  width: 230px;
+  height: 230px;
+  right: 60%;
   border-radius: 50%;
   background: radial-gradient(ellipse at center, #ffffff88, #ccf5ff44);
   box-shadow: 0 0 30px #a3e4ff88;
@@ -58,10 +58,6 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
         <BodyTextBlock>
           <h3>
             『うぇぶくり』
-            <img
-              src="../../public/images/webcreate-icon.png"
-              alt="うぇぶくりアイコン"
-            />
           </h3>
           <p>
             弊社独自のカリキュラムで、環境構築からマンツーマン指導、チーム開発を通じて、エンジニアとしての基礎を確実に築けます。

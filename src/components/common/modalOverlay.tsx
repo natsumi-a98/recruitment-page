@@ -8,7 +8,7 @@ const Overlay = styled.div`
   z-index: 9999;
   width: 100vw;
   height: 100vh;
-  background: white;
+  background: #ffffff;
   overflow-y: scroll;
   animation: slideUp 0.4s ease-out forwards;
 

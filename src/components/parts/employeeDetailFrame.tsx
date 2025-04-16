@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BaseButton from "../common/baseButton";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const Frame = styled.div`
   width: 1114px;
@@ -106,7 +107,10 @@ const EmployeeDetailFrame = ({
     <Frame>
       <LeftImageArea>
         <Photo src={imageUrl} alt="社員画像" />
-        <CloseButton onClick={onClose}>Close</CloseButton>
+        <CloseButton onClick={onClose}>
+          Close
+          <KeyboardArrowDownIcon />
+        </CloseButton>
       </LeftImageArea>
 
       <RightContent>

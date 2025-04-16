@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import SectionTitle from "../common/sectionTitle";
 import SectionLayout from "../common/sectionLayout";
 import CircleButtonWrapper from "../common/circleButtonWrapper";
@@ -22,6 +22,26 @@ const BodyTextBlock = styled.div`
   }
 `;
 
+const sway = keyframes`
+  0% { transform: translateX(0); }
+  50% { transform: translateX(15px); }
+  100% { transform: translateX(0); }
+`;
+
+const RobotImage = styled.img`
+  position: absolute;
+  margin: 0 calc(50% - 50vw);
+  right: 0;
+  height: 37vh;
+  animation: ${sway} 1.5s ease-in-out infinite;
+  z-index: 200;
+`;
+
+const RightSideWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 interface SupportSectionProps {
   onViewMoreClick: () => void;
 }
@@ -41,10 +61,12 @@ const SupportSection = ({ onViewMoreClick }: SupportSectionProps) => {
             alt="チャットbotアイコン"
           />
         </BodyTextBlock>
-        <CircleButtonWrapper>
-          {/**モーダル表示 */}
-          <ViewMoreButton onClick={onViewMoreClick} />
-        </CircleButtonWrapper>
+        <RightSideWrapper>
+          <RobotImage src="public/images/ロボ4.png" alt="ロボット" />
+          <CircleButtonWrapper>
+            <ViewMoreButton onClick={onViewMoreClick} />
+          </CircleButtonWrapper>
+        </RightSideWrapper>
       </ContentWrapper>
     </SectionLayout>
   );
