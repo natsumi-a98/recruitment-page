@@ -7,20 +7,17 @@ const Box = styled.div`
   background-color: transparent;
   border: 3px solid #0e0e0e;
   border-radius: 30px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-shrink: 0;
 `;
 
-const Title = styled.h5`
-  font-size: 32px;
+const Title = styled.h6`
   margin: 30px 0;
 `;
 
 const Body = styled.p`
-  font-size: 20px;
-  line-height: 1.6;
   margin: 0;
   & + & {
     margin-top: 20px;

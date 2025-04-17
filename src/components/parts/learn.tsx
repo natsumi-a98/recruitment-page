@@ -3,17 +3,22 @@ import SectionTitle from "../common/sectionTitle";
 import SectionLayout from "../common/sectionLayout";
 import CircleButtonWrapper from "../common/circleButtonWrapper";
 import ViewMoreButton from "../common/viewMoreButton";
+import media from "../../styles/mediaQuery";
 
 const ContentWrapper = styled.div`
   display: flex;
+
+  ${media.mobile`
+    position: relative;
+    flex-direction: column;
+  `}
 `;
 
 const BodyTextBlock = styled.div`
   max-width: 650px;
 
-  h3 {
+  h5 {
     font-weight: normal;
-    font-size: 40px;
     display: inline-flex;
     align-items: center;
   }
@@ -22,10 +27,17 @@ const BodyTextBlock = styled.div`
     margin: 50px 0;
   }
 
-  img {
-    margin-left: 50px;
-    width: 150px;
-  }
+  ${media.mobile`
+    h5 {
+      font-weight: normal;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    p {
+      margin: 0;
+    }
+  `}
 `;
 
 const float = keyframes`
@@ -44,6 +56,13 @@ const GorillaBubble = styled.img`
   box-shadow: 0 0 30px #a3e4ff88;
   animation: ${float} 4s ease-in-out infinite;
   z-index: 1;
+
+  ${media.mobile`
+    width: 150px;
+    height: 150px;
+    right: 5%;
+    bottom: 60px;
+  `}
 `;
 
 interface LearnSectionProps {
@@ -56,18 +75,18 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
       <SectionTitle backgroundText="Learn" frontText="研修制度" />
       <ContentWrapper>
         <BodyTextBlock>
-          <h3>
-            『うぇぶくり』
-          </h3>
+          <h5>『うぇぶくり』</h5>
           <p>
             弊社独自のカリキュラムで、環境構築からマンツーマン指導、チーム開発を通じて、エンジニアとしての基礎を確実に築けます。
           </p>
         </BodyTextBlock>
 
-        <GorillaBubble src="/images/うぇぶくりゴリラ.png" alt="浮かぶゴリラ" />
+        <GorillaBubble
+          src="/public/images/うぇぶくりゴリラ.png"
+          alt="浮かぶゴリラ"
+        />
 
         <CircleButtonWrapper>
-          {/**モーダル表示 */}
           <ViewMoreButton onClick={onViewMoreClick} />
         </CircleButtonWrapper>
       </ContentWrapper>

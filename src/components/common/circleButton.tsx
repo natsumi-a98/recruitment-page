@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BaseButton from "./baseButton";
+import media from "../../styles/mediaQuery";
 
 const CircleButton = styled(BaseButton)<{ onClick?: () => void }>`
   width: 260px;
@@ -15,9 +16,15 @@ const CircleButton = styled(BaseButton)<{ onClick?: () => void }>`
     font-size: 32px !important;
   }
 
-  span {
-    white-space: nowrap;
-  }
+  ${media.mobile`
+    width: 190px;
+    height: 190px;
+    font-size: 24px;
+
+    svg {
+      font-size: 24px !important;
+    }
+  `}
 `;
 
 export default CircleButton;

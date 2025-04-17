@@ -2,12 +2,18 @@ import styled from "styled-components";
 import { useState } from "react";
 import EmployeeBox from "./employeeBox";
 import EmployeeDetailFrame from "./employeeDetailFrame";
+import media from "../../styles/mediaQuery";
 
 const EmployeeBoxesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+  margin-bottom: 80px;
+
+  ${media.mobile`
+    margin-bottom: 40px;
+  `}
 `;
 
 interface Employee {
@@ -27,7 +33,7 @@ const EmployeeBoxes = () => {
 
   const employees: Employee[] = [
     {
-      imageUrl: "/images/男性1.png",
+      imageUrl: "/public/images/男性1.png",
       years: 1,
       job: "バックエンド",
       selfIntroduction: "Reactでの開発が好きで、UIの改善に取り組んでいます。",
@@ -36,7 +42,7 @@ const EmployeeBoxes = () => {
       message: "あなたの個性を活かせる環境があります！",
     },
     {
-      imageUrl: "/images/女性1.png",
+      imageUrl: "/public/images/女性1.png",
       years: 2,
       job: "フロントエンド",
       selfIntroduction: "Reactでの開発が好きで、UIの改善に取り組んでいます。",
@@ -45,7 +51,7 @@ const EmployeeBoxes = () => {
       message: "あなたの個性を活かせる環境があります！",
     },
     {
-      imageUrl: "/images/男性2.png",
+      imageUrl: "/public/images/男性2.png",
       years: 3,
       job: "デザイナー",
       selfIntroduction: "Reactでの開発が好きで、UIの改善に取り組んでいます。",
@@ -54,7 +60,7 @@ const EmployeeBoxes = () => {
       message: "あなたの個性を活かせる環境があります！",
     },
     {
-      imageUrl: "/images/女性2.png",
+      imageUrl: "/public/images/女性2.png",
       years: 4,
       job: "PM",
       selfIntroduction: "Reactでの開発が好きで、UIの改善に取り組んでいます。",
@@ -63,7 +69,7 @@ const EmployeeBoxes = () => {
       message: "あなたの個性を活かせる環境があります！",
     },
     {
-      imageUrl: "/images/男性3.png",
+      imageUrl: "/public/images/男性3.png",
       years: 5,
       job: "QA",
       selfIntroduction: "Reactでの開発が好きで、UIの改善に取り組んでいます。",
@@ -72,7 +78,7 @@ const EmployeeBoxes = () => {
       message: "あなたの個性を活かせる環境があります！",
     },
     {
-      imageUrl: "/images/男性4.png",
+      imageUrl: "/public/images/男性4.png",
       years: 2,
       job: "インフラ",
       selfIntroduction: "Reactでの開発が好きで、UIの改善に取り組んでいます。",
@@ -81,7 +87,7 @@ const EmployeeBoxes = () => {
       message: "あなたの個性を活かせる環境があります！",
     },
     {
-      imageUrl: "/images/女性3.png",
+      imageUrl: "/public/images/女性3.png",
       years: 6,
       job: "セールス",
       selfIntroduction: "Reactでの開発が好きで、UIの改善に取り組んでいます。",
@@ -90,7 +96,7 @@ const EmployeeBoxes = () => {
       message: "あなたの個性を活かせる環境があります！",
     },
     {
-      imageUrl: "/images/女性4.png",
+      imageUrl: "/public/images/女性4.png",
       years: 1,
       job: "マーケター",
       selfIntroduction: "Reactでの開発が好きで、UIの改善に取り組んでいます。",

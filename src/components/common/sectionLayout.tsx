@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactNode, forwardRef } from "react";
+import media from "../../styles/mediaQuery";
 
 interface SectionLayoutProps {
   children: ReactNode;
@@ -14,6 +15,10 @@ const SectionContainer = styled.section<SectionLayoutProps>`
   align-items: flex-start;
   max-width: 1300px;
   margin: 0 auto;
+
+  ${media.mobile`
+    padding-top: 100px;
+  `}
 `;
 
 const SectionLayout = forwardRef<HTMLElement, SectionLayoutProps>(

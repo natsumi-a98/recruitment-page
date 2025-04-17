@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
+import SpEntryButton from "../common/spEntryButton";
+import media from "../../styles/mediaQuery";
 
 const MainVisualContainer = styled.section<{ id?: string }>`
   position: relative;
@@ -10,10 +12,15 @@ const MainVisualContainer = styled.section<{ id?: string }>`
   justify-content: center;
   align-items: center;
   padding: 0;
+
+  ${media.mobile`
+    height: 100vh;
+  `}
 `;
 
 const MainVisualTitleContainer = styled.div`
   text-align: center;
+  z-index: 5;
 `;
 
 const MainTitle = styled.h1`
@@ -21,6 +28,10 @@ const MainTitle = styled.h1`
   font-weight: bold;
   line-height: 0.9;
   margin: 0;
+
+  @media (max-width: 500px) {
+    font-size: 64px;
+  }
 `;
 
 const SubTitle = styled.h2`
@@ -28,16 +39,27 @@ const SubTitle = styled.h2`
   font-weight: lighter;
   line-height: 0.9;
   margin: 0;
+
+  ${media.mobile`
+    font-size: 48px;
+  `}
 `;
 
 const BottomTextContainer = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 5;
+
+  ${media.mobile`
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+  `}
 `;
 
-const HashTagText = styled.p`
-  font-size: 36px;
+const HashTagText = styled.h4`
   font-weight: bold;
   margin: 0;
 `;
@@ -47,6 +69,21 @@ const DescriptionText = styled.p`
   line-height: 1.5;
   margin-top: 10px;
   margin-bottom: 0;
+
+  ${media.mobile`
+    font-size: 16px;
+    margin-bottom: 30px;
+  `}
+`;
+
+const SpEntryButtonWrapper = styled.div`
+  display: none;
+
+  ${media.mobile`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  `}
 `;
 
 const SlideInFromRight = keyframes`
@@ -66,7 +103,7 @@ const RobotImage = styled.img.withConfig({
   bottom: 0;
   right: 0;
   height: 60vh;
-  z-index: 1;
+  z-index: 0;
   transform: translateX(100%);
 
   ${({ animate }) =>
@@ -74,6 +111,12 @@ const RobotImage = styled.img.withConfig({
     css`
       animation: ${SlideInFromRight} 1s ease-out forwards;
     `}
+
+  ${media.mobile`
+    height: 40vh;
+    right: 0;
+    top: 10px;
+  `}
 `;
 
 const MainVisual = () => {
@@ -83,7 +126,7 @@ const MainVisual = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // 表示領域に入ったらアニメーション発火
+        // 表示領域に入ったらロボット出てくる
         if (entry.isIntersecting) {
           setShowRobot(false);
           setTimeout(() => {
@@ -92,6 +135,7 @@ const MainVisual = () => {
         }
       },
       {
+        // MainVisual50%表示されたら
         threshold: 0.5,
       }
     );
@@ -125,10 +169,13 @@ const MainVisual = () => {
           <br />
           そんな人材を、私たちは求めています。
         </DescriptionText>
+        <SpEntryButtonWrapper>
+          <SpEntryButton />
+        </SpEntryButtonWrapper>
       </BottomTextContainer>
 
       <RobotImage
-        src="public/images/ロボ1.png"
+        src="/public/images/ロボ1.png"
         alt="右から覗き込むロボット"
         animate={showRobot}
       />

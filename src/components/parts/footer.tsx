@@ -2,6 +2,8 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FooterEntryButton from "./footerEntryButton";
+import media from "../../styles/mediaQuery";
+import SpEntryButton from "../common/spEntryButton";
 
 const navItems = [
   { label: "Top", id: "main-visual" },
@@ -13,19 +15,24 @@ const navItems = [
 ];
 
 const FooterContainer = styled.footer`
+  width: 100vw;
   height: 660px;
   margin: 0 calc(50% - 50vw);
   margin-top: 80px;
-  width: 100vw;
   position: relative;
   background-color: #0e0e0e;
   color: #ffffff;
+
+  ${media.mobile`
+    height: 150px;
+    margin-top: 40px;
+  `}
 `;
 
 const FooterItem = styled.div`
   max-width: 1300px;
-  margin: 0 auto;
   height: 100%;
+  margin: 0 auto;
   position: relative;
 `;
 
@@ -41,6 +48,10 @@ const Message = styled.div`
   font-size: 48px;
   margin-bottom: 20px;
   text-shadow: 5px 5px 10px #000000;
+
+  ${media.mobile`
+    display: none;
+  `}
 `;
 
 const FooterLinkWrapper = styled.div`
@@ -49,6 +60,10 @@ const FooterLinkWrapper = styled.div`
   justify-content: center;
   margin-top: 50px;
   text-align: center;
+
+  ${media.mobile`
+    display: none;
+  `}
 `;
 
 const FooterLink = styled(Link)`
@@ -81,6 +96,10 @@ const Nav = styled.nav`
   transform: translateY(-50%);
   list-style: none;
   padding: 0;
+
+  ${media.mobile`
+    display: none;
+  `}
 `;
 
 const NavItem = styled.li`
@@ -128,16 +147,32 @@ const AccessInfo = styled.div`
   p {
     margin: 20px 0 0;
   }
+
+  ${media.mobile`
+    display: none;
+  `}
 `;
 
 const Copyright = styled.small`
   text-align: right;
+
+  ${media.mobile`
+    position: absolute;
+    right: 5px;
+    bottom: -20px;
+  `}
 `;
 
 const sway = keyframes`
   0% { transform: rotate(30deg) translateX(0); }
   50% { transform: rotate(30deg) translateX(15px); }
   100% { transform: rotate(30deg) translateX(0); }
+`;
+
+const swayMobile = keyframes`
+  0% { transform: rotate(15deg) translateX(0); }
+  50% { transform: rotate(15deg) translateX(15px); }
+  100% { transform: rotate(15deg) translateX(0); }
 `;
 
 const RobotImage = styled.img`
@@ -148,11 +183,17 @@ const RobotImage = styled.img`
   height: 45vh;
   animation: ${sway} 1.5s ease-in-out infinite;
   z-index: 200;
-`;
 
-const LeftSideWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${media.mobile`
+    left: 25%;
+    bottom: 0;
+    height: 10vh;
+    animation: ${swayMobile} 1.5s ease-in-out infinite;
+  `}
+
+  @media (max-width: 500px) {
+    left: 10%;
+  }
 `;
 
 const Footer = () => {
@@ -172,7 +213,6 @@ const Footer = () => {
             </NavItem>
           ))}
         </Nav>
-
         <CenterButtonWrapper>
           <Message>あなたの未来を、ここから。</Message>
           <FooterEntryButton />
@@ -186,10 +226,11 @@ const Footer = () => {
               Service Site
             </FooterLink>
           </FooterLinkWrapper>
+          <SpEntryButton />
         </CenterButtonWrapper>
 
         <FooterTextWrapper>
-          <RobotImage src="public/images/ロボ5.png" alt="ロボ5" />
+          <RobotImage src="/public/images/ロボ5.png" alt="ロボ5" />
           <AccessInfo>
             <p>アクセス</p>
             <p>

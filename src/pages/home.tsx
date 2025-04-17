@@ -10,6 +10,7 @@ import Footer from "../components/parts/footer";
 import SupportPage from "./support";
 import LearnPage from "./learn";
 import { keyframes, styled } from "styled-components";
+import media from "../styles/mediaQuery";
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -46,8 +47,9 @@ const fadeOut = keyframes`
   }
 `;
 
-// モーダルの中身（サポート・学習詳細ページ）
-const ModalContent = styled.div<{ isClosing: boolean }>`
+const ModalContent = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "isClosing",
+})<{ isClosing: boolean }>`
   background-color: white;
   padding: 40px;
   border-radius: 100px;
@@ -58,12 +60,19 @@ const ModalContent = styled.div<{ isClosing: boolean }>`
   flex-direction: column;
   position: relative;
   animation: ${({ isClosing }) => (isClosing ? fadeOut : fadeIn)} 0.3s ease-out;
-`;
 
+  ${media.mobile`
+    padding: 20px;
+    border-radius: 24px;
+    width: 98vw;
+    height: 90vh;
+  `}
+`;
 
 const HomePage = () => {
   // モーダルの状態（"support" or "learn" or null）
   const [modal, setModal] = useState<"support" | "learn" | null>(null);
+  const ModalBody = modal === "support" ? SupportPage : LearnPage;
   const [isClosing, setIsClosing] = useState(false);
 
   // モーダルを閉じる処理（フェードアウトアニメーションを挟んでから非表示に）
@@ -77,15 +86,7 @@ const HomePage = () => {
 
   // モーダル表示時に背景のスクロールを無効化
   useEffect(() => {
-    if (modal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = modal ? "hidden" : "";
   }, [modal]);
 
   return (
@@ -104,8 +105,7 @@ const HomePage = () => {
       {modal && (
         <ModalOverlay>
           <ModalContent isClosing={isClosing}>
-            {modal === "support" && <SupportPage onClose={handleClose} />}
-            {modal === "learn" && <LearnPage onClose={handleClose} />}
+            <ModalBody onClose={handleClose} />
           </ModalContent>
         </ModalOverlay>
       )}
