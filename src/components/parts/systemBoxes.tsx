@@ -1,9 +1,16 @@
 import styled from "styled-components";
 import SystemBox from "./systemBox";
+import media from "../../styles/mediaQuery";
 
 const SystemBoxesWrapper = styled.div`
   display: flex;
   gap: 40px;
+
+  ${media.mobile`
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 20px;
+  `}
 `;
 
 const SystemBoxes = () => {

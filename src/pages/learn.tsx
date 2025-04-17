@@ -4,12 +4,19 @@ import BackButton from "../components/common/backButton";
 import CircleButtonWrapper from "../components/common/circleButtonWrapper";
 import SystemBoxes from "../components/parts/systemBoxes";
 import EmployeeBoxes from "../components/parts/employeeBoxes";
+import media from "../styles/mediaQuery";
+
+const LearnPageContainer = styled.div``;
 
 const LearnSectionTextBox = styled.div``;
 
 const WebcreateContainer = styled.div`
   margin: 80px 0;
   display: flex;
+
+  ${media.mobile`
+    flex-direction: column;
+  `}
 `;
 
 const WebcreatePng = styled.div`
@@ -19,6 +26,13 @@ const WebcreatePng = styled.div`
   p {
     margin: 0;
   }
+
+  ${media.mobile`
+  img {
+    width: 100%;
+    height: auto;
+  }
+  `}
 `;
 
 const WebcreateTextBox = styled.div`
@@ -26,6 +40,11 @@ const WebcreateTextBox = styled.div`
   flex-direction: column;
   gap: 50px;
   margin-left: 50px;
+
+  ${media.mobile`
+    flex-direction: row;
+    margin-left: 0;
+  `}
 `;
 
 const AssignmentExample = styled.div``;
@@ -45,11 +64,11 @@ const CenterWrapper = styled.div`
 
 const LearnPage = ({ onClose }: { onClose: () => void }) => {
   return (
-    <main>
+    <LearnPageContainer>
       <ViewMoreTitle titleText="Learn" />
 
       <LearnSectionTextBox>
-        <h2>『うぇぶくり』</h2>
+        <h6>『うぇぶくり』</h6>
         <p>
           弊社独自のカリキュラムであり、
           <br />
@@ -68,7 +87,7 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
       <WebcreateContainer>
         <WebcreatePng>
           <img
-            src="../../public/images/うぇぶくり例.png"
+            src="/public/images/うぇぶくり例.png"
             alt="うぇぶくり一例画像"
           />
           <p>▲『うぇぶくり』レッスン画面の一部</p>
@@ -76,7 +95,7 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
 
         <WebcreateTextBox>
           <AssignmentExample>
-            <h4>『レッスン課題例』</h4>
+            <p>『個人課題例』</p>
             <ul>
               <li>レスポンシブHP作成</li>
               <li>JavaScript実装</li>
@@ -85,7 +104,7 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
           </AssignmentExample>
 
           <TeamDevelopment>
-            <h4>『チーム開発』</h4>
+            <p>『チーム開発』</p>
             <ul>
               <li>独自SNSの作成</li>
               <li>観葉植物ECサイトの作成</li>
@@ -97,14 +116,14 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
       </WebcreateContainer>
 
       <CareerDevelopment>
-        <h2>キャリア形成を補助する制度</h2>
+        <h6>キャリア形成を補助する制度</h6>
         <CenterWrapper>
           <SystemBoxes />
         </CenterWrapper>
       </CareerDevelopment>
 
       <EmployeeModel>
-        <h2>社員の給与モデルと案件実績</h2>
+        <h6>社員の給与モデルと案件実績</h6>
         <CenterWrapper>
           <EmployeeBoxes />
         </CenterWrapper>
@@ -113,7 +132,7 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
       <CircleButtonWrapper>
         <BackButton onClick={onClose} />
       </CircleButtonWrapper>
-    </main>
+    </LearnPageContainer>
   );
 };
 

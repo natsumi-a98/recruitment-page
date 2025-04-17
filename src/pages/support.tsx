@@ -5,10 +5,25 @@ import BackButton from "../components/common/backButton";
 import CircleButtonWrapper from "../components/common/circleButtonWrapper";
 import AfterTraining from "../components/parts/afterTraining";
 import { useRef, useState } from "react";
+import media from "../styles/mediaQuery";
 
 const slides = [<Inexperienced />, <AfterTraining />];
 
-const SupportSectionTextBox = styled.div``;
+const SupportPageContainer = styled.div``;
+
+const HighlightedHeading = styled.h6`
+  line-height: 1.5;
+
+  ${media.mobile`
+    span {
+      display: block;
+    }
+  `}
+`;
+
+const SupportSectionTextBox = styled.div`
+  flex: 1;
+`;
 
 const HighlightText = styled.span`
   background-color: #00e676;
@@ -16,24 +31,22 @@ const HighlightText = styled.span`
 `;
 
 const RootContainer = styled.div`
-  margin-top: 200px;
-  width: 100%;
-  max-width: 1100px;
+  flex: 1;
+  overflow: hidden;
+  max-width: 100%;
   position: relative;
-  margin: 0 auto;
+  margin: 200px auto 0 auto;
 `;
 
 const HorizontalScrollWrapper = styled.div`
   display: flex;
   overflow: hidden;
   gap: 40px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  padding: 0 24px;
 `;
 
 const SlideItem = styled.div`
   flex: 0 0 100%;
-  scroll-snap-align: start;
 `;
 
 const ArrowButton = styled.button`
@@ -50,11 +63,11 @@ const ArrowButton = styled.button`
 `;
 
 const ArrowButtonLeft = styled(ArrowButton)`
-  left: -48px;
+  left: 0;
 `;
 
 const ArrowButtonRight = styled(ArrowButton)`
-  right: -48px;
+  right: 0;
 `;
 
 const SupportPage = ({ onClose }: { onClose: () => void }) => {
@@ -89,11 +102,15 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
     scrollToIndex(newIndex);
   };
   return (
-    <main>
+    <SupportPageContainer>
       <ViewMoreTitle titleText="Support" />
 
       <SupportSectionTextBox>
-        <h2>「新しいモノ」をキャッチアップする能力</h2>
+        <HighlightedHeading>
+          <span>「新しいモノ」を</span>
+          <span>キャッチアップする能力</span>
+        </HighlightedHeading>
+
         <p>
           新たな業務に従事し、その業務を習得・改善するための学習時間があるように、
           <br />
@@ -123,7 +140,7 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
       </SupportSectionTextBox>
 
       <RootContainer>
-        <h2>経験・未経験で進むルート</h2>
+        <h6>経験・未経験で進むルート</h6>
         <ArrowButtonLeft onClick={handleScrollLeft}>←</ArrowButtonLeft>
         {/** キャリアイメージをスライダーで表示 */}
         <HorizontalScrollWrapper ref={scrollRef}>
@@ -137,7 +154,7 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
       <CircleButtonWrapper>
         <BackButton onClick={onClose} />
       </CircleButtonWrapper>
-    </main>
+    </SupportPageContainer>
   );
 };
 

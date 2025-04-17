@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import HeaderEntryButton from "./headerEntryButton";
+import media from "../../styles/mediaQuery";
 
 const navItems = [
   { label: "Top", id: "main-visual" },
@@ -29,18 +30,18 @@ const HeaderContainer = styled.header`
   margin: 0 auto;
   z-index: 1000;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     height: 55px;
-  }
+  `}
 `;
 
 const Logo = styled.img`
   height: 42px;
   width: 100px;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     width: 100px;
-  }
+  `}
 `;
 
 const Nav = styled.nav`
@@ -52,9 +53,9 @@ const Nav = styled.nav`
   left: 50%;
   transform: translateX(-50%);
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     display: none;
-  }
+  `}
 `;
 
 const NavItem = styled.li`
@@ -83,7 +84,7 @@ const NavItem = styled.li`
 const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
   display: none;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +95,7 @@ const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
     position: relative;
     z-index: 2000;
     cursor: pointer;
-  }
+  `}
 
   span {
     position: absolute;
@@ -135,9 +136,9 @@ const MobileNav = styled.div<MobileNavProps>`
   transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out,
     visibility 0.3s ease-in-out;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     position: absolute;
-  }
+  `}
 `;
 
 const MobileNavItem = styled.div`
@@ -180,7 +181,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Logo
-        src="../../public/images/recruit-logo.ac423ca5.png"
+        src="/public/images/recruit-logo.ac423ca5.png"
         alt="FEDELTA_リクルートページロゴ"
       />
       <Nav>

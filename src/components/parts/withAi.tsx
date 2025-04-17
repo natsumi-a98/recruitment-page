@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
 import SectionTitle from "../common/sectionTitle";
 import SectionLayout from "../common/sectionLayout";
+import media from "../../styles/mediaQuery";
 
 const WithAIContainer = styled.section`
   position: relative;
@@ -35,6 +36,11 @@ const RobotImage = styled.img.withConfig({
     css`
       animation: ${SlideInFromBottom} 1s ease-out forwards;
     `}
+
+  ${media.mobile`
+    height: 35vh;
+    bottom: -50px;
+  `}
 `;
 
 const WithAISection = () => {
@@ -44,7 +50,7 @@ const WithAISection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // 表示領域に入ったらアニメーション発火
+        // 表示領域に入ったらロボット出てくる
         if (entry.isIntersecting) {
           setShowRobot(false);
           setTimeout(() => {
@@ -53,6 +59,7 @@ const WithAISection = () => {
         }
       },
       {
+        // WithAISection50%表示されたら
         threshold: 0.5,
       }
     );
@@ -90,7 +97,7 @@ const WithAISection = () => {
       </SectionLayout>
 
       <RobotImage
-        src="public/images/ロボ2.png"
+        src="/public/images/ロボ2.png"
         alt="下から覗き込むロボット"
         animate={showRobot}
       />

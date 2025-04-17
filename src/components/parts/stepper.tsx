@@ -48,7 +48,6 @@ const CustomStepLabel = styled(StepLabel, {
   },
 }));
 
-
 // ステップコンテンツのスタイル
 const CustomStepContent = styled(StepContent)(() => ({
   marginLeft: 15,

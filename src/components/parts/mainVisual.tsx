@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
 import SpEntryButton from "../common/spEntryButton";
+import media from "../../styles/mediaQuery";
 
 const MainVisualContainer = styled.section<{ id?: string }>`
   position: relative;
@@ -12,9 +13,9 @@ const MainVisualContainer = styled.section<{ id?: string }>`
   align-items: center;
   padding: 0;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     height: 100vh;
-  }
+  `}
 `;
 
 const MainVisualTitleContainer = styled.div`
@@ -39,9 +40,9 @@ const SubTitle = styled.h2`
   line-height: 0.9;
   margin: 0;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     font-size: 48px;
-  }
+  `}
 `;
 
 const BottomTextContainer = styled.div`
@@ -50,22 +51,17 @@ const BottomTextContainer = styled.div`
   left: 0;
   z-index: 5;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     width: 100%;
-  }
+  `}
 `;
 
-const HashTagText = styled.p`
-  font-size: 36px;
+const HashTagText = styled.h4`
   font-weight: bold;
   margin: 0;
-
-  @media (max-width: 500px) {
-    font-size: 32px;
-  }
 `;
 
 const DescriptionText = styled.p`
@@ -74,20 +70,20 @@ const DescriptionText = styled.p`
   margin-top: 10px;
   margin-bottom: 0;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     font-size: 16px;
     margin-bottom: 30px;
-  }
+  `}
 `;
 
 const SpEntryButtonWrapper = styled.div`
   display: none;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-  }
+  `}
 `;
 
 const SlideInFromRight = keyframes`
@@ -116,11 +112,11 @@ const RobotImage = styled.img.withConfig({
       animation: ${SlideInFromRight} 1s ease-out forwards;
     `}
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     height: 40vh;
     right: 0;
     top: 10px;
-  }
+  `}
 `;
 
 const MainVisual = () => {
@@ -130,7 +126,7 @@ const MainVisual = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // 表示領域に入ったらアニメーション発火
+        // 表示領域に入ったらロボット出てくる
         if (entry.isIntersecting) {
           setShowRobot(false);
           setTimeout(() => {
@@ -139,6 +135,7 @@ const MainVisual = () => {
         }
       },
       {
+        // MainVisual50%表示されたら
         threshold: 0.5,
       }
     );
@@ -178,7 +175,7 @@ const MainVisual = () => {
       </BottomTextContainer>
 
       <RobotImage
-        src="public/images/ロボ1.png"
+        src="/public/images/ロボ1.png"
         alt="右から覗き込むロボット"
         animate={showRobot}
       />

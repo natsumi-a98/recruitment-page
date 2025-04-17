@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import BaseButton from "../common/baseButton";
+import media from "../../styles/mediaQuery";
 
 const SmallEntryButton = styled(BaseButton)`
   height: 60px;
@@ -8,9 +9,9 @@ const SmallEntryButton = styled(BaseButton)`
   border-radius: 30px;
   font-size: 32px;
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     display: none;
-  }
+  `}
 `;
 
 const ArrowForwardIosIconStyled = styled(ArrowForwardIosIcon)`

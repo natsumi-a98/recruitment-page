@@ -3,9 +3,14 @@ import SectionTitle from "../common/sectionTitle";
 import SectionLayout from "../common/sectionLayout";
 import CircleButtonWrapper from "../common/circleButtonWrapper";
 import ViewMoreButton from "../common/viewMoreButton";
+import media from "../../styles/mediaQuery";
 
 const ContentWrapper = styled.div`
   display: flex;
+
+  ${media.mobile`
+    flex-direction: column;
+  `}
 `;
 
 const BodyTextBlock = styled.div`
@@ -20,6 +25,19 @@ const BodyTextBlock = styled.div`
     width: 150px;
     height: 150px;
   }
+
+  ${media.mobile`
+      p {
+        margin: 0;
+      }
+
+    img {
+      margin-top: 30px;
+      margin-right: 0;
+      width: 75px;
+      height: 75px;
+      }
+  `}
 `;
 
 const sway = keyframes`
@@ -35,11 +53,11 @@ const RobotImage = styled.img`
   height: 37vh;
   animation: ${sway} 1.5s ease-in-out infinite;
   z-index: 200;
-`;
 
-const RightSideWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${media.mobile`
+    margin-top: 150px;
+    height: 30vh;
+  `}
 `;
 
 interface SupportSectionProps {
@@ -55,18 +73,13 @@ const SupportSection = ({ onViewMoreClick }: SupportSectionProps) => {
           <p>
             AIを活用しながら業務を遂行できるプロフェッショナル人材の育成と市場価値の向上を支援します。
           </p>
-          <img src="../../public/images/chtgpt-黒.png" alt="ChatGPTアイコン" />
-          <img
-            src="../../public/images/chatbot-黒.png"
-            alt="チャットbotアイコン"
-          />
+          <img src="/public/images/chtgpt-黒.png" alt="ChatGPTアイコン" />
+          <img src="/public/images/chatbot-黒.png" alt="チャットbotアイコン" />
         </BodyTextBlock>
-        <RightSideWrapper>
-          <RobotImage src="public/images/ロボ4.png" alt="ロボット" />
-          <CircleButtonWrapper>
-            <ViewMoreButton onClick={onViewMoreClick} />
-          </CircleButtonWrapper>
-        </RightSideWrapper>
+        <CircleButtonWrapper>
+          <ViewMoreButton onClick={onViewMoreClick} />
+        </CircleButtonWrapper>
+        <RobotImage src="/public/images/ロボ4.png" alt="ロボット" />
       </ContentWrapper>
     </SectionLayout>
   );
