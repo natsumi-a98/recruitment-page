@@ -11,6 +11,7 @@ import SupportPage from "./support";
 import LearnPage from "./learn";
 import { keyframes, styled } from "styled-components";
 import media from "../styles/mediaQuery";
+import CloseIcon from "@mui/icons-material/Close";
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -47,6 +48,23 @@ const fadeOut = keyframes`
   }
 `;
 
+const CloseButton = styled.button`
+  position: sticky;
+  top: 0;
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 12px;
+  background-color: #00e676;
+  border-radius: 50%;
+
+  ${media.mobile`
+    padding: 8px;
+  `}
+`;
+
 const ModalContent = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "isClosing",
 })<{ isClosing: boolean }>`
@@ -74,6 +92,7 @@ const HomePage = () => {
   const [modal, setModal] = useState<"support" | "learn" | null>(null);
   const ModalBody = modal === "support" ? SupportPage : LearnPage;
   const [isClosing, setIsClosing] = useState(false);
+  const [showCloseButton, setShowCloseButton] = useState(true);
 
   // モーダルを閉じる処理（フェードアウトアニメーションを挟んでから非表示に）
   const handleClose = () => {
@@ -84,9 +103,28 @@ const HomePage = () => {
     }, 300);
   };
 
-  // モーダル表示時に背景のスクロールを無効化
   useEffect(() => {
-    document.body.style.overflow = modal ? "hidden" : "";
+    const modalEl = document.getElementById("modal-content");
+
+    const handleScroll = () => {
+      if (!modalEl) return;
+      const scrollTop = modalEl.scrollTop;
+      const scrollHeight = modalEl.scrollHeight;
+      const clientHeight = modalEl.clientHeight;
+
+      const isBottom = scrollTop + clientHeight >= scrollHeight - 50;
+      setShowCloseButton(!isBottom);
+    };
+
+    if (modalEl) {
+      modalEl.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (modalEl) {
+        modalEl.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, [modal]);
 
   return (
@@ -103,8 +141,17 @@ const HomePage = () => {
       <Footer />
 
       {modal && (
-        <ModalOverlay>
-          <ModalContent isClosing={isClosing}>
+        <ModalOverlay onClick={handleClose}>
+          <ModalContent
+            id="modal-content"
+            isClosing={isClosing}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {showCloseButton && (
+              <CloseButton onClick={handleClose} aria-label="Close">
+                <CloseIcon fontSize="large" />
+              </CloseButton>
+            )}
             <ModalBody onClose={handleClose} />
           </ModalContent>
         </ModalOverlay>

@@ -124,9 +124,10 @@ const MainVisual = () => {
   const containerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    const currentRef = containerRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // 表示領域に入ったらロボット出てくる
         if (entry.isIntersecting) {
           setShowRobot(false);
           setTimeout(() => {
@@ -135,18 +136,17 @@ const MainVisual = () => {
         }
       },
       {
-        // MainVisual50%表示されたら
         threshold: 0.5,
       }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
