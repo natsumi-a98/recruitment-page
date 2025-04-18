@@ -6,7 +6,7 @@ import media from "../../styles/mediaQuery";
 
 const WithAIContainer = styled.section`
   position: relative;
-  height: 100vh;
+  height: 90vh;
 
   ${media.mobile`
     height: 90vh;
@@ -29,9 +29,9 @@ const RobotImage = styled.img.withConfig({
 })<{ animate: boolean }>`
   position: absolute;
   margin: 0 calc(50% - 50vw);
-  bottom: -250px;
+  bottom: -200px;
   left: 0;
-  height: 45vh;
+  height: 35vh;
   transform: translateY(100%);
   z-index: 0;
 
