@@ -7,6 +7,10 @@ import media from "../../styles/mediaQuery";
 const WithAIContainer = styled.section`
   position: relative;
   height: 100vh;
+
+  ${media.mobile`
+    height: 90vh;
+  `}
 `;
 
 const WithAiSectionTextBlock = styled.div``;

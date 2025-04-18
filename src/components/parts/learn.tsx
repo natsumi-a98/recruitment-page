@@ -40,28 +40,50 @@ const BodyTextBlock = styled.div`
   `}
 `;
 
-const float = keyframes`
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-50px); }
-  100% { transform: translateY(0px); }
+// const float = keyframes`
+//   0% { transform: translateY(0px); }
+//   50% { transform: translateY(-50px); }
+//   100% { transform: translateY(0px); }
+// `;
+
+// const GorillaBubble = styled.img`
+//   position: absolute;
+//   width: 230px;
+//   height: 230px;
+//   right: 60%;
+//   border-radius: 50%;
+//   background: radial-gradient(ellipse at center, #ffffff88, #ccf5ff44);
+//   box-shadow: 0 0 30px #a3e4ff88;
+//   animation: ${float} 4s ease-in-out infinite;
+//   z-index: 1;
+
+//   ${media.mobile`
+//     width: 150px;
+//     height: 150px;
+//     right: 5%;
+//     bottom: 60px;
+//   `}
+// `;
+
+const bounce = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(15px); }
+  100% { transform: translateY(0); }
 `;
 
-const GorillaBubble = styled.img`
+const GorillaRobotImage = styled.img`
   position: absolute;
-  width: 230px;
-  height: 230px;
-  right: 60%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, #ffffff88, #ccf5ff44);
-  box-shadow: 0 0 30px #a3e4ff88;
-  animation: ${float} 4s ease-in-out infinite;
-  z-index: 1;
+  margin: 0 calc(50% - 50vw);
+  right: 10%;
+  bottom: 50%;
+  height: 40vh;
+  animation: ${bounce} 1.5s ease-in-out infinite;
+  z-index: 200;
 
   ${media.mobile`
-    width: 150px;
-    height: 150px;
-    right: 5%;
-    bottom: 60px;
+    right: 40%;
+    bottom: -30%;
+    height: 20vh;
   `}
 `;
 
@@ -81,14 +103,18 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
           </p>
         </BodyTextBlock>
 
-        <GorillaBubble
+        {/* <GorillaBubble
           src="/public/images/うぇぶくりゴリラ.png"
           alt="浮かぶゴリラ"
-        />
+        /> */}
 
         <CircleButtonWrapper>
           <ViewMoreButton onClick={onViewMoreClick} />
         </CircleButtonWrapper>
+        <GorillaRobotImage
+          src="/public/images/ゴリラロボ2.png"
+          alt="ゴリラロボット"
+        />
       </ContentWrapper>
     </SectionLayout>
   );
