@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BaseButton from "../common/baseButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import media from "../../styles/mediaQuery";
 
 const Box = styled.div`
   width: 256px;
@@ -9,6 +10,11 @@ const Box = styled.div`
   overflow: hidden;
   border: 3px solid #0e0e0e;
   border-radius: 30px;
+
+  ${media.mobile`
+      width: 160px;
+      height: 160px;
+  `}
 `;
 
 const EmployeeImage = styled.img`
@@ -24,15 +30,27 @@ const InfoWrapper = styled.div`
   display: flex;
   gap: 5px;
   align-items: center;
+
+  ${media.mobile`
+    bottom: 40px;
+  `}
 `;
 
 const YearsText = styled.span`
   font-size: 12px;
   background-color: rgba(255, 255, 255, 0.5);
   & > strong {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
   }
+
+  ${media.mobile`
+    font-size: 8px;
+      & > strong {
+        font-size: 12px;
+        font-weight: bold;
+      }
+  `}
 `;
 
 const JobTag = styled.span`
@@ -40,6 +58,10 @@ const JobTag = styled.span`
   background-color: #00e676;
   color: #000;
   padding: 2px 6px;
+
+  ${media.mobile`
+    font-size: 8px;
+  `}
 `;
 
 const ClickButton = styled(BaseButton)`
@@ -50,11 +72,21 @@ const ClickButton = styled(BaseButton)`
   height: 35px;
   font-size: 16px;
   border-radius: 17.5px;
+
+  ${media.mobile`
+    width: 80px;
+    height: 25px;
+    font-size: 12px;
+  `}
 `;
 
 const ArrowForwardIosIconStyled = styled(ArrowForwardIosIcon)`
   font-size: 16px !important;
   margin: 0;
+
+  ${media.mobile`
+    font-size: 12px !important;
+  `}
 `;
 
 interface EmployeeBoxProps {
