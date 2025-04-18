@@ -40,6 +40,7 @@ const BodyTextBlock = styled.div`
   `}
 `;
 
+// うぇぶゴリ
 // const float = keyframes`
 //   0% { transform: translateY(0px); }
 //   50% { transform: translateY(-50px); }
@@ -65,25 +66,46 @@ const BodyTextBlock = styled.div`
 //   `}
 // `;
 
-const bounce = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(15px); }
-  100% { transform: translateY(0); }
-`;
+// 上指してるゴリラ
+// const bounce = keyframes`
+//   0% { transform: translateY(0); }
+//   50% { transform: translateY(15px); }
+//   100% { transform: translateY(0); }
+// `;
 
+// const GorillaRobotImage = styled.img`
+//   position: absolute;
+//   margin: 0 calc(50% - 50vw);
+//   right: 8%;
+//   bottom:  52%;
+//   height: 40vh;
+//   animation: ${bounce} 1.5s ease-in-out infinite;
+//   z-index: 200;
+
+//   ${media.mobile`
+//     right: 40%;
+//     bottom: -30%;
+//     height: 20vh;
+//   `}
+// `;
+const sway = keyframes`
+  0% { transform: translateX(0); }
+  50% { transform: translateX(15px); }
+  100% { transform: translateX(0); }
+`;
 const GorillaRobotImage = styled.img`
   position: absolute;
   margin: 0 calc(50% - 50vw);
-  right: 10%;
-  bottom: 50%;
-  height: 40vh;
-  animation: ${bounce} 1.5s ease-in-out infinite;
+  right: 0;
+  bottom: 53%;
+  height: 47vh;
+  animation: ${sway} 1s ease-in-out infinite;
   z-index: 200;
 
   ${media.mobile`
-    right: 40%;
-    bottom: -30%;
-    height: 20vh;
+    margin-top: 150px;
+    bottom: -150px;
+    height: 35vh;
   `}
 `;
 
@@ -102,17 +124,20 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
             弊社独自のカリキュラムで、環境構築からマンツーマン指導、チーム開発を通じて、エンジニアとしての基礎を確実に築けます。
           </p>
         </BodyTextBlock>
-
         {/* <GorillaBubble
           src="/public/images/うぇぶくりゴリラ.png"
           alt="浮かぶゴリラ"
         /> */}
-
         <CircleButtonWrapper>
           <ViewMoreButton onClick={onViewMoreClick} />
         </CircleButtonWrapper>
+        {/* 上指してるゴリラ
         <GorillaRobotImage
           src="/public/images/ゴリラロボ2.png"
+          alt="ゴリラロボット"
+        /> */}
+        <GorillaRobotImage
+          src="/public/images/ゴリラロボ.png"
           alt="ゴリラロボット"
         />
       </ContentWrapper>
