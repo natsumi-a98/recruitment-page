@@ -51,7 +51,7 @@ const RobotImage = styled.img`
   margin: 0 calc(50% - 50vw);
   right: 0;
   height: 37vh;
-  animation: ${sway} 1.5s ease-in-out infinite;
+  animation: ${sway} 1s ease-in-out infinite;
   z-index: 200;
 
   ${media.mobile`

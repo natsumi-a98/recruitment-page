@@ -30,7 +30,7 @@ const RobotImage = styled.img.withConfig({
   position: absolute;
   margin: 0 calc(50% - 50vw);
   bottom: -200px;
-  left: 0;
+  left: 50px;
   height: 35vh;
   transform: translateY(100%);
   z-index: 0;
@@ -44,6 +44,7 @@ const RobotImage = styled.img.withConfig({
   ${media.mobile`
     height: 35vh;
     bottom: -50px;
+    left: 0;
   `}
 `;
 
