@@ -16,11 +16,23 @@ interface MobileNavProps {
   $isOpen: boolean;
 }
 
-const HeaderContainer = styled.header`
+const HeaderWrapper = styled.header`
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: 1000;
+
+  ${media.mobile`
+    background-color: transparent;
+  `}
+`;
+
+const HeaderContainer = styled.div`
   align-items: center;
   display: flex;
-  height: 100px;
   width: 100%;
+  height: 100px;
   max-width: 1300px;
   justify-content: space-between;
   position: fixed;
@@ -41,6 +53,7 @@ const Logo = styled.img`
 
   ${media.mobile`
     width: 100px;
+    background-color: #ffffff;
   `}
 `;
 
@@ -179,37 +192,42 @@ const Header = () => {
   };
 
   return (
-    <HeaderContainer>
-      <Logo
-        src="/public/images/recruit-logo.ac423ca5.png"
-        alt="FEDELTA_リクルートページロゴ"
-      />
-      <Nav>
-        {navItems.map((item) => (
-          <NavItem key={item.id} onClick={() => scrollToSection(item.id)}>
-            <span>{item.label}</span>
-          </NavItem>
-        ))}
-      </Nav>
+    <HeaderWrapper>
+      <HeaderContainer>
+        <Logo
+          src="/public/images/recruit-logo.ac423ca5.png"
+          alt="FEDELTA_リクルートページロゴ"
+        />
+        <Nav>
+          {navItems.map((item) => (
+            <NavItem key={item.id} onClick={() => scrollToSection(item.id)}>
+              <span>{item.label}</span>
+            </NavItem>
+          ))}
+        </Nav>
 
-      {/* ハンバーガーメニューアイコン */}
-      <HamburgerIcon onClick={toggleMenu} $isOpen={isMenuOpen}>
-        <span />
-        <span />
-        <span />
-      </HamburgerIcon>
+        {/* ハンバーガーメニューアイコン */}
+        <HamburgerIcon onClick={toggleMenu} $isOpen={isMenuOpen}>
+          <span />
+          <span />
+          <span />
+        </HamburgerIcon>
 
-      {/* モバイル版ナビゲーション */}
-      <MobileNav $isOpen={isMenuOpen}>
-        {navItems.map((item) => (
-          <MobileNavItem key={item.id} onClick={() => scrollToSection(item.id)}>
-            {item.label}
-          </MobileNavItem>
-        ))}
-      </MobileNav>
+        {/* モバイル版ナビゲーション */}
+        <MobileNav $isOpen={isMenuOpen}>
+          {navItems.map((item) => (
+            <MobileNavItem
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+            >
+              {item.label}
+            </MobileNavItem>
+          ))}
+        </MobileNav>
 
-      <HeaderEntryButton />
-    </HeaderContainer>
+        <HeaderEntryButton />
+      </HeaderContainer>
+    </HeaderWrapper>
   );
 };
 
