@@ -6,7 +6,7 @@ import media from "../../styles/mediaQuery";
 const MainVisualContainer = styled.section<{ id?: string }>`
   position: relative;
   width: 100%;
-  height: calc(100vh - 100px);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -6,7 +6,11 @@ import media from "../../styles/mediaQuery";
 
 const WithAIContainer = styled.section`
   position: relative;
-  height: 100vh;
+  height: 90vh;
+
+  ${media.mobile`
+    height: 90vh;
+  `}
 `;
 
 const WithAiSectionTextBlock = styled.div``;
@@ -25,9 +29,9 @@ const RobotImage = styled.img.withConfig({
 })<{ animate: boolean }>`
   position: absolute;
   margin: 0 calc(50% - 50vw);
-  bottom: -250px;
-  left: 0;
-  height: 45vh;
+  bottom: -200px;
+  left: 50px;
+  height: 35vh;
   transform: translateY(100%);
   z-index: 0;
 
@@ -40,6 +44,7 @@ const RobotImage = styled.img.withConfig({
   ${media.mobile`
     height: 35vh;
     bottom: -50px;
+    left: 0;
   `}
 `;
 

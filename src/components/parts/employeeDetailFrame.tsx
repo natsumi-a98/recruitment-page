@@ -3,19 +3,33 @@ import BaseButton from "../common/baseButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import media from "../../styles/mediaQuery";
 
+interface EmployeeDetailFrameProps {
+  imageUrl: string; // 社員画像
+  name: string; // 名前
+  age: number; // 年齢
+  job: string; // キャリア
+  onClose: () => void;
+  selfIntroduction: string; // 自己紹介
+  aboutCompany: string; // 会社について
+  goodThings: string; // 良かったところ
+  message: string; // ひとこと
+}
+
 const Frame = styled.div`
-  width: 1114px;
+  max-width: 1114px;
   height: 594px;
   display: flex;
   border: 3px solid #0e0e0e;
   border-radius: 30px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 80px;
 
   ${media.mobile`
     width: 98%;
+    height: 370px;
     flex-direction: column;
-    height: auto;
+    margin-bottom: 40px;
   `}
 `;
 
@@ -37,11 +51,6 @@ const Photo = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  ${media.mobile`
-    width: 100%;
-    height: 100%;
-  `}
 `;
 
 const CloseButton = styled(BaseButton)`
@@ -66,20 +75,15 @@ const TagWrapper = styled.div`
   right: 20px;
   display: flex;
   gap: 8px;
+  z-index: 2;
 `;
 
-const YearsText = styled.span`
-  background-color: rgba(255, 255, 255, 0.5);
-  & > strong {
-    font-size: 24px;
-    font-weight: bold;
-  }
+const NameAgeText = styled.span`
+  padding: 4px 8px;
 
   ${media.mobile`
     font-size: 12px;
-    & > strong {
-      font-size: 16px;
-    }
+    padding: 3px 6px;
   `}
 `;
 
@@ -97,10 +101,13 @@ const JobTag = styled.span`
 const RightContent = styled.div`
   flex: 1;
   padding: 40px;
+  margin-top: 52px;
   overflow-y: auto;
+  position: relative;
 
   ${media.mobile`
     padding: 20px;
+    margin-top: 40px;
     margin-left: 45%;
   `}
 `;
@@ -134,20 +141,10 @@ const SectionText = styled.p`
   `}
 `;
 
-interface EmployeeDetailFrameProps {
-  imageUrl: string; // 社員画像
-  years: number; // 入社年数
-  job: string; // キャリア
-  onClose: () => void;
-  selfIntroduction: string; // 自己紹介
-  aboutCompany: string; // 会社について
-  goodThings: string; // 良かったところ
-  message: string; // ひとこと
-}
-
 const EmployeeDetailFrame = ({
   imageUrl,
-  years,
+  name,
+  age,
   job,
   onClose,
   selfIntroduction,
@@ -165,14 +162,14 @@ const EmployeeDetailFrame = ({
         </CloseButton>
       </LeftImageArea>
 
-      <RightContent>
-        <TagWrapper>
-          <YearsText>
-            入社 <strong>{years}</strong> 年目
-          </YearsText>
-          <JobTag>{job}</JobTag>
-        </TagWrapper>
+      <TagWrapper>
+        <NameAgeText>
+          {name} ({age}歳)
+        </NameAgeText>
+        <JobTag>{job}</JobTag>
+      </TagWrapper>
 
+      <RightContent>
         <Section>
           <SectionTitle>自己紹介</SectionTitle>
           <SectionText>{selfIntroduction}</SectionText>

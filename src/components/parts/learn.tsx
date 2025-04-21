@@ -9,7 +9,6 @@ const ContentWrapper = styled.div`
   display: flex;
 
   ${media.mobile`
-    position: relative;
     flex-direction: column;
   `}
 `;
@@ -40,28 +39,70 @@ const BodyTextBlock = styled.div`
   `}
 `;
 
-const float = keyframes`
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-50px); }
-  100% { transform: translateY(0px); }
-`;
+// うぇぶゴリ
+// const float = keyframes`
+//   0% { transform: translateY(0px); }
+//   50% { transform: translateY(-50px); }
+//   100% { transform: translateY(0px); }
+// `;
 
-const GorillaBubble = styled.img`
+// const GorillaBubble = styled.img`
+//   position: absolute;
+//   width: 230px;
+//   height: 230px;
+//   right: 60%;
+//   border-radius: 50%;
+//   background: radial-gradient(ellipse at center, #ffffff88, #ccf5ff44);
+//   box-shadow: 0 0 30px #a3e4ff88;
+//   animation: ${float} 4s ease-in-out infinite;
+//   z-index: 1;
+
+//   ${media.mobile`
+//     width: 150px;
+//     height: 150px;
+//     right: 5%;
+//     bottom: 60px;
+//   `}
+// `;
+
+// 上指してるゴリラ
+// const bounce = keyframes`
+//   0% { transform: translateY(0); }
+//   50% { transform: translateY(15px); }
+//   100% { transform: translateY(0); }
+// `;
+
+// const GorillaRobotImage = styled.img`
+//   position: absolute;
+//   margin: 0 calc(50% - 50vw);
+//   right: 8%;
+//   bottom:  52%;
+//   height: 40vh;
+//   animation: ${bounce} 1.5s ease-in-out infinite;
+//   z-index: 200;
+
+//   ${media.mobile`
+//     right: 40%;
+//     bottom: -30%;
+//     height: 20vh;
+//   `}
+// `;
+const sway = keyframes`
+  0% { transform: translateX(0); }
+  50% { transform: translateX(15px); }
+  100% { transform: translateX(0); }
+`;
+const GorillaRobotImage = styled.img`
   position: absolute;
-  width: 230px;
-  height: 230px;
-  right: 60%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, #ffffff88, #ccf5ff44);
-  box-shadow: 0 0 30px #a3e4ff88;
-  animation: ${float} 4s ease-in-out infinite;
-  z-index: 1;
+  margin: 0 calc(50% - 50vw);
+  right: 0;
+  height: 27vw;
+  animation: ${sway} 1s ease-in-out infinite;
+  z-index: 200;
 
   ${media.mobile`
-    width: 150px;
-    height: 150px;
-    right: 5%;
-    bottom: 60px;
+    margin-top: 150px;
+    height: 50vw;
   `}
 `;
 
@@ -80,15 +121,22 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
             弊社独自のカリキュラムで、環境構築からマンツーマン指導、チーム開発を通じて、エンジニアとしての基礎を確実に築けます。
           </p>
         </BodyTextBlock>
-
-        <GorillaBubble
+        {/* <GorillaBubble
           src="/public/images/うぇぶくりゴリラ.png"
           alt="浮かぶゴリラ"
-        />
-
+        /> */}
         <CircleButtonWrapper>
           <ViewMoreButton onClick={onViewMoreClick} />
         </CircleButtonWrapper>
+        {/* 上指してるゴリラ
+        <GorillaRobotImage
+          src="/public/images/ゴリラロボ2.png"
+          alt="ゴリラロボット"
+        /> */}
+        <GorillaRobotImage
+          src="/public/images/ゴリラロボ.png"
+          alt="ゴリラロボット"
+        />
       </ContentWrapper>
     </SectionLayout>
   );

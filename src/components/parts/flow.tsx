@@ -69,7 +69,6 @@ const StepNumber = styled.div`
 const ContentBox = styled.div`
   width: 840px;
   height: 185px;
-  background-color: #ffffff;
   display: flex;
   align-items: center;
 
