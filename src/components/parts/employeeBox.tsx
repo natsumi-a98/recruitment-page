@@ -3,6 +3,14 @@ import BaseButton from "../common/baseButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import media from "../../styles/mediaQuery";
 
+interface EmployeeBoxProps {
+  imageUrl: string; // 社員画像
+  name: string; // 名前
+  age: number; // 年齢
+  job: string; // キャリア
+  onClick?: () => void;
+}
+
 const Box = styled.div`
   width: 256px;
   height: 256px;
@@ -36,20 +44,12 @@ const InfoWrapper = styled.div`
   `}
 `;
 
-const YearsText = styled.span`
+const NameAgeText = styled.span`
   font-size: 12px;
-  background-color: rgba(255, 255, 255, 0.5);
-  & > strong {
-    font-size: 14px;
-    font-weight: bold;
-  }
+  background-color: #ffffff;
 
   ${media.mobile`
     font-size: 8px;
-      & > strong {
-        font-size: 12px;
-        font-weight: bold;
-      }
   `}
 `;
 
@@ -89,21 +89,14 @@ const ArrowForwardIosIconStyled = styled(ArrowForwardIosIcon)`
   `}
 `;
 
-interface EmployeeBoxProps {
-  imageUrl: string; // 社員画像
-  years: number; // 入社年数
-  job: string; // キャリア
-  onClick?: () => void;
-}
-
-const EmployeeBox = ({ imageUrl, years, job, onClick }: EmployeeBoxProps) => {
+const EmployeeBox = ({ imageUrl, name, age, job, onClick }: EmployeeBoxProps) => {
   return (
     <Box>
       <EmployeeImage src={imageUrl} alt="社員写真" />
       <InfoWrapper>
-        <YearsText>
-          入社<strong>{years}</strong>年目
-        </YearsText>
+        <NameAgeText>
+          {name} ({age}歳)
+        </NameAgeText>
 
         <JobTag>{job}</JobTag>
       </InfoWrapper>

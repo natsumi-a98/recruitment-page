@@ -9,7 +9,6 @@ const ContentWrapper = styled.div`
   display: flex;
 
   ${media.mobile`
-    position: relative;
     flex-direction: column;
   `}
 `;
@@ -97,15 +96,13 @@ const GorillaRobotImage = styled.img`
   position: absolute;
   margin: 0 calc(50% - 50vw);
   right: 0;
-  bottom: 53%;
-  height: 47vh;
+  height: 27vw;
   animation: ${sway} 1s ease-in-out infinite;
   z-index: 200;
 
   ${media.mobile`
     margin-top: 150px;
-    bottom: -150px;
-    height: 35vh;
+    height: 50vw;
   `}
 `;
 

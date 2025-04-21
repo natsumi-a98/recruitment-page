@@ -50,13 +50,13 @@ const RobotImage = styled.img`
   position: absolute;
   margin: 0 calc(50% - 50vw);
   right: 0;
-  height: 37vh;
+  height: 22vw;
   animation: ${sway} 1s ease-in-out infinite;
   z-index: 200;
 
   ${media.mobile`
     margin-top: 150px;
-    height: 30vh;
+    height: 50vw;
   `}
 `;
 

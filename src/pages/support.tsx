@@ -70,6 +70,28 @@ const ArrowButtonRight = styled(ArrowButton)`
   right: 0;
 `;
 
+const RotatingImage = styled.img`
+  position: absolute;
+  right: 150px;
+  transform: translateY(-50%);
+  width: 15vw;
+  animation: rotateY 1s linear infinite;
+
+  @keyframes rotateY {
+    from {
+      transform: translateY(-50%) rotateY(0deg);
+    }
+    to {
+      transform: translateY(-50%) rotateY(360deg);
+    }
+  }
+
+  ${media.mobile`
+    right: 50px;
+  `}
+`;
+
+
 const SupportPage = ({ onClose }: { onClose: () => void }) => {
   // スライド対象の要素参照
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -104,6 +126,11 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
   return (
     <SupportPageContainer>
       <ViewMoreTitle titleText="Support" />
+
+      <RotatingImage
+        src="/public/images/カーソルロボ.png"
+        alt="ロボットのカーソル"
+      />
 
       <SupportSectionTextBox>
         <HighlightedHeading>

@@ -179,15 +179,15 @@ const RobotImage = styled.img`
   position: absolute;
   margin: 0 calc(50% - 50vw);
   left: 0;
-  bottom: 180px;
-  height: 45vh;
+  bottom: 130px;
+  height: 27vw;
   animation: ${sway} 1.5s ease-in-out infinite;
   z-index: 200;
 
   ${media.mobile`
-    left: 25%;
+    left: 80px;
     bottom: 0;
-    height: 10vh;
+    height: 20vw;
     animation: ${swayMobile} 1.5s ease-in-out infinite;
   `}
 
