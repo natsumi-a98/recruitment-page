@@ -72,9 +72,9 @@ const ArrowButtonRight = styled(ArrowButton)`
 
 const RotatingRobot = styled.img`
   position: absolute;
-  right: 150px;
+  right: 100px;
   transform: translateY(-50%);
-  width: 20vw;
+  width: 25vw;
   animation: rotateY 1s linear infinite;
 
   @keyframes rotateY {
