@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     font-family: "Noto Sans", sans-serif;
     color: #0E0E0E;
-    background-color: #ffffff;
+    
     user-select: none;
     overflow-x: hidden;
   }
