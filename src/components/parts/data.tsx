@@ -40,23 +40,23 @@ const DataSection = () => {
 
   // PC版の画像データ
   const pcImages = [
-    { src: "/images/社員数-黒.png", alt: "社員数" },
-    { src: "/images/男女比-黒.png", alt: "男女比" },
-    { src: "/images/平均年齢-黒.png", alt: "平均年齢" },
-    { src: "/images/平均残業時間-黒.png", alt: "平均残業時間" },
-    { src: "/images/業務内容-黒.png", alt: "案件先での業務内容" },
-    { src: "/images/使用言語-黒.png", alt: "使用言語" },
-    { src: "/images/未経験者の割合-黒.png", alt: "未経験者の割合" },
+    { src: "/images/employees-pc.png", alt: "社員数" },
+    { src: "/images/ratio.png", alt: "男女比" },
+    { src: "/images/average-age-pc.png", alt: "平均年齢" },
+    { src: "/images/average-overtime-pc.png", alt: "平均残業時間" },
+    { src: "/images/business-content-pc.png", alt: "案件先での業務内容" },
+    { src: "/images/programming-languages-pc.png", alt: "使用言語" },
+    { src: "/images/inexperienced-pc.png", alt: "未経験者の割合" },
   ];
 
   // モバイル版の画像データ
   const spImages = [
-    { src: "/images/社員数-sp.png", alt: "社員数" },
-    { src: "/images/平均年齢-sp.png", alt: "平均年齢" },
-    { src: "/images/業務内容-sp.png", alt: "案件先での業務内容" },
-    { src: "/images/平均残業時間-sp.png", alt: "平均残業時間" },
-    { src: "/images/未経験者の割合-sp.png", alt: "未経験者の割合" },
-    { src: "/images/使用言語-sp.png", alt: "使用言語" },
+    { src: "/images/employees-sp.png", alt: "社員数" },
+    { src: "/images/average-age-sp.png", alt: "平均年齢" },
+    { src: "/images/business-content-sp.png", alt: "案件先での業務内容" },
+    { src: "/images/average-overtime-sp.png", alt: "平均残業時間" },
+    { src: "/images/inexperienced-sp.png", alt: "未経験者の割合" },
+    { src: "/images/programming-languages-sp.png", alt: "使用言語" },
   ];
 
   const imagesToRender = isMobile ? spImages : pcImages;

@@ -73,13 +73,13 @@ const SupportSection = ({ onViewMoreClick }: SupportSectionProps) => {
           <p>
             AIを活用しながら業務を遂行できるプロフェッショナル人材の育成と市場価値の向上を支援します。
           </p>
-          <img src="/public/images/chtgpt-黒.png" alt="ChatGPTアイコン" />
-          <img src="/public/images/chatbot-黒.png" alt="チャットbotアイコン" />
+          <img src="/images/chtgpt.png" alt="ChatGPTアイコン" />
+          <img src="/images/chatbot.png" alt="チャットbotアイコン" />
         </BodyTextBlock>
         <CircleButtonWrapper>
           <ViewMoreButton onClick={onViewMoreClick} />
         </CircleButtonWrapper>
-        <RobotImage src="/public/images/ロボ4.png" alt="ロボット" />
+        <RobotImage src="/images/robot-left.png" alt="左を指しているロボット" />
       </ContentWrapper>
     </SectionLayout>
   );

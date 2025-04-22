@@ -5,10 +5,36 @@ import CircleButtonWrapper from "../components/common/circleButtonWrapper";
 import SystemBoxes from "../components/parts/systemBoxes";
 import EmployeeBoxes from "../components/parts/employeeBoxes";
 import media from "../styles/mediaQuery";
+import { BananaRain } from "../components/common/bananaRain";
+import { useState, useEffect, useRef } from "react";
 
-const LearnPageContainer = styled.div``;
+const LearnPageContainer = styled.div`
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 0;
+`;
 
-const LearnSectionTextBox = styled.div``;
+const GorillaBackground = styled.img`
+  position: fixed;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  width: 60%;
+  object-fit: cover;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+  transform-origin: top center;
+  transition: transform 0.1s ease-out;
+
+  ${media.mobile`
+    width: 80%;
+  `}
+`;
+
+const LearnPageTextBox = styled.div``;
 
 const WebcreateContainer = styled.div`
   margin: 80px 0;
@@ -63,11 +89,37 @@ const CenterWrapper = styled.div`
 `;
 
 const LearnPage = ({ onClose }: { onClose: () => void }) => {
+  const [scale, setScale] = useState(1);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollTop = container.scrollTop;
+      const newScale = 1 + scrollTop / 2000;
+      setScale(Math.min(newScale, 2));
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <LearnPageContainer>
+    <LearnPageContainer ref={containerRef}>
+      <GorillaBackground
+        src="/images/gorillarobot-front.png"
+        alt="ゴリラ背景"
+        style={{
+          transform: `translateX(-50%) scale(${scale})`,
+        }}
+      />
+      <BananaRain />
+
       <ViewMoreTitle titleText="Learn" />
 
-      <LearnSectionTextBox>
+      <LearnPageTextBox>
         <h6>『うぇぶくり』</h6>
         <p>
           弊社独自のカリキュラムであり、
@@ -82,14 +134,11 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
           <br />
           エンジニアまでのキャリア下積みが自然と構築できます。
         </p>
-      </LearnSectionTextBox>
+      </LearnPageTextBox>
 
       <WebcreateContainer>
         <WebcreatePng>
-          <img
-            src="/public/images/うぇぶくり例.png"
-            alt="うぇぶくり一例画像"
-          />
+          <img src="/images/webcreate-sample.png" alt="うぇぶくり一例画像" />
           <p>▲『うぇぶくり』レッスン画面の一部</p>
         </WebcreatePng>
 

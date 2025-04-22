@@ -122,7 +122,7 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
           </p>
         </BodyTextBlock>
         {/* <GorillaBubble
-          src="/public/images/うぇぶくりゴリラ.png"
+          src="/images/webcreate-gorilla.png"
           alt="浮かぶゴリラ"
         /> */}
         <CircleButtonWrapper>
@@ -130,11 +130,11 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
         </CircleButtonWrapper>
         {/* 上指してるゴリラ
         <GorillaRobotImage
-          src="/public/images/ゴリラロボ2.png"
+          src="/images/gorillarobot-up.png"
           alt="ゴリラロボット"
         /> */}
         <GorillaRobotImage
-          src="/public/images/ゴリラロボ.png"
+          src="/images/gorillarobot-left.png"
           alt="ゴリラロボット"
         />
       </ContentWrapper>

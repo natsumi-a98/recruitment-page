@@ -50,7 +50,7 @@ const fadeOut = keyframes`
 
 const CloseButton = styled.button`
   position: sticky;
-  top: 0;
+  top: 40px;
   align-self: flex-end;
   background: transparent;
   border: none;
@@ -61,6 +61,7 @@ const CloseButton = styled.button`
   border-radius: 50%;
 
   ${media.mobile`
+    top: 0;
     padding: 8px;
   `}
 `;
@@ -68,8 +69,8 @@ const CloseButton = styled.button`
 const ModalContent = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "isClosing",
 })<{ isClosing: boolean }>`
-  background-color: white;
-  padding: 40px;
+  background: linear-gradient(0deg, #e8faff, #ffffff);
+  padding: 0 40px;
   border-radius: 100px;
   width: 90vw;
   height: 80vh;
@@ -124,6 +125,23 @@ const HomePage = () => {
       if (modalEl) {
         modalEl.removeEventListener("scroll", handleScroll);
       }
+    };
+  }, [modal]);
+
+  // モーダル表示中は背景スクロールを無効化
+  useEffect(() => {
+    if (modal) {
+      document.documentElement.style.overflow = "hidden"; // html 要素のスクロールを無効化
+      document.body.style.overflow = "hidden"; // body 要素のスクロールを無効化
+    } else {
+      document.documentElement.style.overflow = "auto"; // html 要素のスクロールを有効化
+      document.body.style.overflow = "auto"; // body 要素のスクロールを有効化
+    }
+
+    // クリーンアップ処理
+    return () => {
+      document.documentElement.style.overflow = "auto"; // モーダルが閉じられたときに戻す
+      document.body.style.overflow = "auto"; // モーダルが閉じられたときに戻す
     };
   }, [modal]);
 

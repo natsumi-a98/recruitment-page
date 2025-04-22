@@ -230,7 +230,7 @@ const Footer = () => {
         </CenterButtonWrapper>
 
         <FooterTextWrapper>
-          <RobotImage src="/public/images/ロボ5.png" alt="ロボ5" />
+          <RobotImage src="/images/robot-right.png" alt="右を指しているロボ" />
           <AccessInfo>
             <p>アクセス</p>
             <p>
