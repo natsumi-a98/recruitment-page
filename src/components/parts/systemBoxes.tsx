@@ -5,10 +5,10 @@ import media from "../../styles/mediaQuery";
 const SystemBoxesWrapper = styled.div`
   display: flex;
   gap: 40px;
+  overflow-x: auto;
 
   ${media.mobile`
     width: 100%;
-    overflow-x: auto;
     padding-bottom: 20px;
   `}
 `;

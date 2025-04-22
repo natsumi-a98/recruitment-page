@@ -67,6 +67,10 @@ const WebcreateTextBox = styled.div`
   gap: 50px;
   margin-left: 50px;
 
+  p {
+    margin-top:0;
+  }
+
   ${media.mobile`
     flex-direction: row;
     margin-left: 0;
