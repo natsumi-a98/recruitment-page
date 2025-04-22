@@ -70,11 +70,11 @@ const ArrowButtonRight = styled(ArrowButton)`
   right: 0;
 `;
 
-const RotatingImage = styled.img`
+const RotatingRobot = styled.img`
   position: absolute;
   right: 150px;
   transform: translateY(-50%);
-  width: 15vw;
+  width: 20vw;
   animation: rotateY 1s linear infinite;
 
   @keyframes rotateY {
@@ -127,8 +127,8 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
     <SupportPageContainer>
       <ViewMoreTitle titleText="Support" />
 
-      <RotatingImage
-        src="/public/images/カーソルロボ.png"
+      <RotatingRobot
+        src="/images/robot-dancing.png"
         alt="ロボットのカーソル"
       />
 

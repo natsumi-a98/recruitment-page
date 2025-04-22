@@ -195,7 +195,7 @@ const Header = () => {
     <HeaderWrapper>
       <HeaderContainer>
         <Logo
-          src="/public/images/recruit-logo.ac423ca5.png"
+          src="/images/recruit-logo.ac423ca5.png"
           alt="FEDELTA_リクルートページロゴ"
         />
         <Nav>

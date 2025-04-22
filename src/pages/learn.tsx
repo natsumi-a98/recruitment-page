@@ -5,8 +5,24 @@ import CircleButtonWrapper from "../components/common/circleButtonWrapper";
 import SystemBoxes from "../components/parts/systemBoxes";
 import EmployeeBoxes from "../components/parts/employeeBoxes";
 import media from "../styles/mediaQuery";
+import { BananaRain } from "../components/common/bananaRain";
+import { useState, useEffect } from "react";
 
 const LearnPageContainer = styled.div``;
+
+const GorillaBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/images/gorillarobot-front.png") no-repeat center top;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+`;
 
 const LearnSectionTextBox = styled.div``;
 
@@ -63,8 +79,22 @@ const CenterWrapper = styled.div`
 `;
 
 const LearnPage = ({ onClose }: { onClose: () => void }) => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <LearnPageContainer>
+      <GorillaBackground
+        style={{ transform: `scale(${1 + scrollY * 0.0005})` }}
+      />
+      <BananaRain />
       <ViewMoreTitle titleText="Learn" />
 
       <LearnSectionTextBox>
@@ -87,7 +117,7 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
       <WebcreateContainer>
         <WebcreatePng>
           <img
-            src="/public/images/うぇぶくり例.png"
+            src="/images/webcreate-sample.png"
             alt="うぇぶくり一例画像"
           />
           <p>▲『うぇぶくり』レッスン画面の一部</p>

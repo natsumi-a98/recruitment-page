@@ -175,7 +175,7 @@ const MainVisual = () => {
       </BottomTextContainer>
 
       <RobotImage
-        src="/public/images/ロボ1.png"
+        src="/images/robot-peek.png"
         alt="右から覗き込むロボット"
         animate={showRobot}
       />

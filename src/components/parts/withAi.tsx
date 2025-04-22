@@ -102,7 +102,7 @@ const WithAISection = () => {
       </SectionLayout>
 
       <RobotImage
-        src="/public/images/ロボ2.png"
+        src="/images/robot-bottom.png"
         alt="下から覗き込むロボット"
         animate={showRobot}
       />
