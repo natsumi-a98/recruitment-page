@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
-import SpEntryButton from "../common/spEntryButton";
 import media from "../../styles/mediaQuery";
+import EntryButton from "../common/entryButton";
 
 const MainVisualContainer = styled.section<{ id?: string }>`
   position: relative;
@@ -173,7 +173,7 @@ const MainVisual = () => {
           そんな人材を、私たちは求めています。
         </DescriptionText>
         <SpEntryButtonWrapper>
-          <SpEntryButton />
+          <EntryButton variant="sp"/>
         </SpEntryButtonWrapper>
       </BottomTextContainer>
 
