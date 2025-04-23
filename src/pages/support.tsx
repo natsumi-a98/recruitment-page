@@ -43,10 +43,22 @@ const HorizontalScrollWrapper = styled.div`
   overflow: hidden;
   gap: 40px;
   padding: 0 24px;
+
+  ${media.mobile`
+    flex-direction: column;
+    overflow: visible;
+    gap: 30px;
+    padding: 0;
+  `}
 `;
 
 const SlideItem = styled.div`
   flex: 0 0 100%;
+
+  ${media.mobile`
+    flex: none;
+    width: 100%;
+  `}
 `;
 
 const ArrowButton = styled.button`
@@ -59,6 +71,10 @@ const ArrowButton = styled.button`
   border: none;
   padding: 10px;
   cursor: pointer;
+
+  ${media.mobile`
+    display: none;
+  `}
 `;
 
 const ArrowButtonLeft = styled(ArrowButton)`
