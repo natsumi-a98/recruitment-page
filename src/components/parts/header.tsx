@@ -173,7 +173,6 @@ const Header = () => {
       document.body.style.overflow = "auto";
     }
 
-    // クリーンアップ関数でオーバーフローをリセット
     return () => {
       document.body.style.overflow = "auto";
     };

@@ -29,7 +29,6 @@ const GradationContainer = styled.div`
       transparent 80%
     ),
     linear-gradient(135deg, rgba(230, 250, 255, 0.8), rgba(255, 255, 255, 0.5));
-  background-size: 200% 200%;
   animation: ${gradationAnimation} 5s ease infinite;
   z-index: -1;
 `;

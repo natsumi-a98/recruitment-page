@@ -10,21 +10,15 @@ const ViewMoreTitleWrapper = styled.div`
   margin: 80px 0;
 
   ${media.mobile`
-    margin: 30px 0;
+    margin: 40px 0;
   `}
 `;
 
 const ViewMoreTitleText = styled.h1`
   font-family: "Abril Fatface", cursive;
-  font-size: 88px;
   font-weight: 400;
   text-align: center;
   margin: 0;
-
-  ${media.mobile`
-    font-size: 32px;
-    font-weight: 400;
-  `}
 `;
 
 const ViewMoreTitle: React.FC<ViewMoreTitleProps> = ({ titleText }) => {

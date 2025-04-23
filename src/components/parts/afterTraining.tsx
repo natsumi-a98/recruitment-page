@@ -104,7 +104,7 @@ const Title = styled.span`
   `}
 `;
 
-const CareerImages = styled.div.withConfig({
+const CareerExamples = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "maxHeight" && prop !== "isOpen"
 })<{ maxHeight: string; isOpen: boolean }>`
   overflow: hidden;
@@ -115,7 +115,7 @@ const CareerImages = styled.div.withConfig({
   white-space: pre-line;
 `;
 
-const CareerImagesItems = styled.div`
+const CareerExampleItems = styled.div`
   margin-bottom: 8px;
 `;
 
@@ -167,15 +167,15 @@ const AfterTraining = () => {
                   />
                 </ListHeader>
 
-                <CareerImages
+                <CareerExamples
                   ref={setRef}
                   isOpen={isOpen}
                   maxHeight={maxHeight}
                 >
                   {item.content.map((text, i) => (
-                    <CareerImagesItems key={i}>{text}</CareerImagesItems>
+                    <CareerExampleItems key={i}>{text}</CareerExampleItems>
                   ))}
-                </CareerImages>
+                </CareerExamples>
               </div>
             );
           })}

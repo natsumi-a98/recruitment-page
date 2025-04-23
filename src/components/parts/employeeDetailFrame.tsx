@@ -16,7 +16,7 @@ interface EmployeeDetailFrameProps {
 }
 
 const Frame = styled.div`
-  max-width: 1114px;
+  width: 80%;
   height: 594px;
   display: flex;
   border: 3px solid #0e0e0e;

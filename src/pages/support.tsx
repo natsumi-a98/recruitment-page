@@ -59,7 +59,6 @@ const ArrowButton = styled.button`
   border: none;
   padding: 10px;
   cursor: pointer;
-  z-index: 10;
 `;
 
 const ArrowButtonLeft = styled(ArrowButton)`

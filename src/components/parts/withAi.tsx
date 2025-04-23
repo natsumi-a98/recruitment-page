@@ -7,10 +7,6 @@ import media from "../../styles/mediaQuery";
 const WithAIContainer = styled.section`
   position: relative;
   height: 90vh;
-
-  ${media.mobile`
-    height: 90vh;
-  `}
 `;
 
 const WithAiSectionTextBlock = styled.div``;
@@ -49,13 +45,17 @@ const RobotImage = styled.img.withConfig({
 `;
 
 const WithAISection = () => {
+  // ロボット表示の状態管理
   const [showRobot, setShowRobot] = useState(false);
+  // DOM要素参照
   const containerRef = useRef<HTMLElement | null>(null);
 
+  // Intersection Observer でロボットを表示するトリガー
   useEffect(() => {
+    const currentRef = containerRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // 表示領域に入ったらロボット出てくる
         if (entry.isIntersecting) {
           setShowRobot(false);
           setTimeout(() => {
@@ -64,18 +64,17 @@ const WithAISection = () => {
         }
       },
       {
-        // WithAISection50%表示されたら
+        // 50%が見えたら発火
         threshold: 0.5,
       }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
-
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
