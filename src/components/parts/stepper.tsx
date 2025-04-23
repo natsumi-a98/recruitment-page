@@ -104,7 +104,7 @@ const VerticalLinearStepper: React.FC = () => {
   const handleReset = () => setActiveStep(0);
 
   return (
-    <Box sx={{ width: 400 }}>
+    <Box sx={{ width: 350 }}>
       <Stepper
         activeStep={activeStep}
         orientation="vertical"
