@@ -4,6 +4,7 @@ import SectionLayout from "../common/sectionLayout";
 import { useEffect, useState } from "react";
 import media from "../../styles/mediaQuery";
 import { MOBILE_BREAKPOINT } from "../../constants/breakpoints";
+import AnnotationText from "../common/annotationText";
 
 const ImageWrapper = styled.div`
   display: flex;
@@ -70,6 +71,7 @@ const DataSection = () => {
         {imagesToRender.map((image, index) => (
           <ImageItem key={index} src={image.src} alt={image.alt} />
         ))}
+      <AnnotationText text="※2024年4月2日時点" />
       </ImageWrapper>
     </SectionLayout>
   );
