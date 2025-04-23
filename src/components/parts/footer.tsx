@@ -4,6 +4,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FooterEntryButton from "./footerEntryButton";
 import media from "../../styles/mediaQuery";
 import SpEntryButton from "../common/spEntryButton";
+import { EXTERNAL_LINKS } from "../../constants/urls";
 
 const navItems = [
   { label: "Top", id: "main-visual" },
@@ -217,11 +218,11 @@ const Footer = () => {
           <Message>あなたの未来を、ここから。</Message>
           <FooterEntryButton />
           <FooterLinkWrapper>
-            <FooterLink to="https://fedeltaonline.com/">
+            <FooterLink to={EXTERNAL_LINKS.CORPORATE_SITE}>
               <ArrowForwardIosIconStyled />
               Corporate Site
             </FooterLink>
-            <FooterLink to="https://service.fedeltaonline.com/">
+            <FooterLink to={EXTERNAL_LINKS.SERVICE_SITE}>
               <ArrowForwardIosIconStyled />
               Service Site
             </FooterLink>

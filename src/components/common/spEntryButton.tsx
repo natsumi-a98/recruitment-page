@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import BaseButton from "./baseButton";
 import media from "../../styles/mediaQuery";
+import { EXTERNAL_LINKS } from "../../constants/urls";
 
 const SpEntryButtonComponent = styled(BaseButton)`
   display: none;
@@ -22,8 +23,12 @@ const ArrowForwardIosIconStyled = styled(ArrowForwardIosIcon)`
 `;
 
 const SpEntryButton = () => {
+  const handleClick = () => {
+    window.location.href = EXTERNAL_LINKS.ENTRY_PAGE;
+  };
+
   return (
-    <SpEntryButtonComponent>
+    <SpEntryButtonComponent onClick={handleClick}>
       <ArrowForwardIosIconStyled />
       ENTRY
     </SpEntryButtonComponent>
