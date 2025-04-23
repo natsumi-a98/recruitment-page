@@ -4,6 +4,7 @@ import BaseButton from "./baseButton";
 import media from "../../styles/mediaQuery";
 import { EXTERNAL_LINKS } from "../../constants/urls";
 
+// PC版のヘッダー、フッター・SP版でスタイル切り替え
 type EntryButtonProps = {
   variant: "big" | "small" | "sp";
 };
@@ -14,6 +15,7 @@ const commonStyles = css`
   justify-content: center;
 `;
 
+// フッター用エントリーボタン
 const BigButton = styled(BaseButton)`
   ${commonStyles};
   height: 180px;
@@ -26,6 +28,7 @@ const BigButton = styled(BaseButton)`
   `}
 `;
 
+// ヘッダー用エントリーボタン
 const SmallButton = styled(BaseButton)`
   ${commonStyles};
   height: 60px;
@@ -38,6 +41,7 @@ const SmallButton = styled(BaseButton)`
   `}
 `;
 
+// SP版用エントリーボタン
 const SpButton = styled(BaseButton)`
   display: none;
 
