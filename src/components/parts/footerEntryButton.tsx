@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BaseButton from "../common/baseButton";
 import media from "../../styles/mediaQuery";
+import { EXTERNAL_LINKS } from "../../constants/urls";
 
 const BigEntryButton = styled(BaseButton)`
   height: 180px;
@@ -14,7 +15,11 @@ const BigEntryButton = styled(BaseButton)`
 `;
 
 const FooterEntryButton = () => {
-  return <BigEntryButton>ENTRY</BigEntryButton>;
+  const handleClick = () => {
+    window.location.href = EXTERNAL_LINKS.ENTRY_PAGE;
+  };
+
+  return <BigEntryButton onClick={handleClick}>ENTRY</BigEntryButton>;
 };
 
 export default FooterEntryButton;

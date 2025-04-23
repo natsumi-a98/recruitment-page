@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import BaseButton from "../common/baseButton";
 import media from "../../styles/mediaQuery";
+import { EXTERNAL_LINKS } from "../../constants/urls";
 
 const SmallEntryButton = styled(BaseButton)`
   height: 60px;
@@ -20,8 +21,12 @@ const ArrowForwardIosIconStyled = styled(ArrowForwardIosIcon)`
 `;
 
 const HeaderEntryButton = () => {
+  const handleClick = () => {
+    window.location.href = EXTERNAL_LINKS.ENTRY_PAGE;
+  };
+
   return (
-    <SmallEntryButton>
+    <SmallEntryButton onClick={handleClick}>
       <ArrowForwardIosIconStyled />
       ENTRY
     </SmallEntryButton>
