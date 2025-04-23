@@ -1,10 +1,4 @@
-import styled, { keyframes } from "styled-components";
-
-const gradationAnimation = keyframes`
-  0% { background-position: 50% 0%; }
-  50% { background-position: 50% 100%; }
-  100% { background-position: 50% 0%; }
-`;
+import { styled } from "styled-components";
 
 const GradationContainer = styled.div`
   position: fixed;
@@ -29,7 +23,6 @@ const GradationContainer = styled.div`
       transparent 80%
     ),
     linear-gradient(135deg, rgba(230, 250, 255, 0.8), rgba(255, 255, 255, 0.5));
-  animation: ${gradationAnimation} 5s ease infinite;
   z-index: -1;
 `;
 
