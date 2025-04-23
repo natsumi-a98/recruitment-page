@@ -24,13 +24,9 @@ const BackgroundTitle = styled.h3`
   top: 0;
   left: 0;
   z-index: 5;
-
-  ${media.mobile`
-  `}
 `;
 
 const FrontTitle = styled.h3`
-  font-family: "Noto Sans", sans-serif;
   font-weight: bold;
   color: #0e0e0e;
   position: relative;

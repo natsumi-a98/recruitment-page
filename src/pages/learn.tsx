@@ -5,8 +5,8 @@ import CircleButtonWrapper from "../components/common/circleButtonWrapper";
 import SystemBoxes from "../components/parts/systemBoxes";
 import EmployeeBoxes from "../components/parts/employeeBoxes";
 import media from "../styles/mediaQuery";
-import { BananaRain } from "../components/common/bananaRain";
 import { useState, useEffect, useRef } from "react";
+import BananaRain from "../components/common/bananaRain";
 
 const LearnPageContainer = styled.div`
   position: relative;

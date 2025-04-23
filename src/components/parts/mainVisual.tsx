@@ -120,9 +120,12 @@ const RobotImage = styled.img.withConfig({
 `;
 
 const MainVisual = () => {
+  // ロボット表示の状態管理
   const [showRobot, setShowRobot] = useState(false);
+  // DOM要素参照
   const containerRef = useRef<HTMLElement | null>(null);
 
+  // Intersection Observer でロボットを表示するトリガー
   useEffect(() => {
     const currentRef = containerRef.current;
 
@@ -136,6 +139,7 @@ const MainVisual = () => {
         }
       },
       {
+        // 50%が見えたら発火
         threshold: 0.5,
       }
     );
@@ -143,7 +147,6 @@ const MainVisual = () => {
     if (currentRef) {
       observer.observe(currentRef);
     }
-
     return () => {
       if (currentRef) {
         observer.unobserve(currentRef);

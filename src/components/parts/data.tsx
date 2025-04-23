@@ -3,6 +3,7 @@ import SectionTitle from "../common/sectionTitle";
 import SectionLayout from "../common/sectionLayout";
 import { useEffect, useState } from "react";
 import media from "../../styles/mediaQuery";
+import { MOBILE_BREAKPOINT } from "../../constants/breakpoints";
 
 const ImageWrapper = styled.div`
   display: flex;
@@ -31,7 +32,8 @@ const DataSection = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkIsMobile = () => setIsMobile(window.innerWidth <= 768);
+    const checkIsMobile = () =>
+      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
     checkIsMobile();
 
     window.addEventListener("resize", checkIsMobile);
