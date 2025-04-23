@@ -1,9 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import FooterEntryButton from "./footerEntryButton";
 import media from "../../styles/mediaQuery";
-import SpEntryButton from "../common/spEntryButton";
 import { EXTERNAL_LINKS } from "../../constants/urls";
+import EntryButton from "../common/entryButton";
 
 const navItems = [
   { label: "Top", id: "main-visual" },
@@ -211,7 +210,7 @@ const Footer = () => {
         </Nav>
         <CenterButtonWrapper>
           <Message>あなたの未来を、ここから。</Message>
-          <FooterEntryButton />
+          <EntryButton variant="big" />
           <FooterLinkWrapper>
             <FooterLink
               href={EXTERNAL_LINKS.CORPORATE_SITE}
@@ -230,7 +229,7 @@ const Footer = () => {
               Service Site
             </FooterLink>
           </FooterLinkWrapper>
-          <SpEntryButton />
+          <EntryButton variant="sp" />
         </CenterButtonWrapper>
 
         <RobotImage src="/images/robot-right.png" alt="右を指しているロボ" />
