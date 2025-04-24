@@ -183,7 +183,7 @@ const VerticalLinearStepper: React.FC = () => {
           elevation={0}
           sx={{ p: 3, backgroundColor: "transparent", color: "#0e0e0e" }}
         >
-          {["うぇぶくり卒業", "SES事業部に異動"].map((line, i) => (
+          {["うぇぶくり卒業", "ITS事業部に異動"].map((line, i) => (
             // 完了メッセージを表示
             <Typography key={i}>{line}</Typography>
           ))}
