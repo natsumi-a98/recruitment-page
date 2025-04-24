@@ -81,12 +81,6 @@ const listData = [
   },
 ];
 
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
 const ListHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -96,7 +90,7 @@ const ListHeader = styled.div`
   border-bottom: 3px solid #0e0e0e;
 `;
 
-const Title = styled.span`
+const CareerExampleTitle = styled.span`
   font-size: 24px;
 
   ${media.mobile`
@@ -122,6 +116,7 @@ const CareerExampleItems = styled.div`
 const AfterTrainingContainer = styled.div`
   width: 80%;
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
 
   ${media.mobile`
@@ -133,53 +128,50 @@ const AfterTraining = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const handleToggle = (index: number) => {
-    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+  // リスト開閉をトグル
+  const toggleItem = (index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
+  // ref 登録関数
+  const registerRef = (index: number) => (el: HTMLDivElement | null) => {
+    contentRefs.current[index] = el;
   };
 
   return (
     <>
       <h6>経験者・研修後のキャリアイメージ</h6>
       <AfterTrainingContainer>
-        <Container>
-          {listData.map((item, index) => {
-            const isOpen = openIndex === index;
+        {listData.map((item, index) => {
+          const isOpen = openIndex === index;
+          const maxHeight = isOpen
+            ? `${contentRefs.current[index]?.scrollHeight ?? 0}px`
+            : "0px";
 
-            // ref を登録（戻り値は void に）
-            const setRef = (el: HTMLDivElement | null): void => {
-              contentRefs.current[index] = el;
-            };
+          return (
+            <div key={index}>
+              <ListHeader onClick={() => toggleItem(index)}>
+                <CareerExampleTitle>{item.title}</CareerExampleTitle>
+                <KeyboardArrowDownIcon
+                  style={{
+                    transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    transition: "transform 0.3s",
+                  }}
+                />
+              </ListHeader>
 
-            // scrollHeight から maxHeight を取得
-            const maxHeight = isOpen
-              ? `${contentRefs.current[index]?.scrollHeight || 0}px`
-              : "0px";
-
-            return (
-              <div key={index}>
-                <ListHeader onClick={() => handleToggle(index)}>
-                  <Title>{item.title}</Title>
-                  <KeyboardArrowDownIcon
-                    style={{
-                      transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                      transition: "transform 0.3s",
-                    }}
-                  />
-                </ListHeader>
-
-                <CareerExamples
-                  ref={setRef}
-                  isOpen={isOpen}
-                  maxHeight={maxHeight}
-                >
-                  {item.content.map((text, i) => (
-                    <CareerExampleItems key={i}>{text}</CareerExampleItems>
-                  ))}
-                </CareerExamples>
-              </div>
-            );
-          })}
-        </Container>
+              <CareerExamples
+                ref={registerRef(index)}
+                isOpen={isOpen}
+                maxHeight={maxHeight}
+              >
+                {item.content.map((text, i) => (
+                  <CareerExampleItems key={i}>{text}</CareerExampleItems>
+                ))}
+              </CareerExamples>
+            </div>
+          );
+        })}
       </AfterTrainingContainer>
     </>
   );
