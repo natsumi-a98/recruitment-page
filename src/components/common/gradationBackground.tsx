@@ -23,7 +23,21 @@ const GradationContainer = styled.div`
       transparent 80%
     ),
     linear-gradient(135deg, rgba(230, 250, 255, 0.8), rgba(255, 255, 255, 0.5));
+  background-size: 200% 200%;
+  animation: moveGradation 5s ease-in-out infinite;
   z-index: -1;
+
+  @keyframes moveGradation {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
 `;
 
 const GradationBackground = () => {

@@ -1,10 +1,8 @@
 import styled, { keyframes } from "styled-components";
-import { Link } from "react-router-dom";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import FooterEntryButton from "./footerEntryButton";
 import media from "../../styles/mediaQuery";
-import SpEntryButton from "../common/spEntryButton";
 import { EXTERNAL_LINKS } from "../../constants/urls";
+import EntryButton from "../common/entryButton";
 
 const navItems = [
   { label: "Top", id: "main-visual" },
@@ -67,7 +65,7 @@ const FooterLinkWrapper = styled.div`
   `}
 `;
 
-const FooterLink = styled(Link)`
+const FooterLink = styled.a`
   font-weight: normal;
   font-size: 36px;
   text-decoration: none;
@@ -133,17 +131,10 @@ const NavItem = styled.li`
   }
 `;
 
-const FooterTextWrapper = styled.footer`
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  align-items: flex-end;
-`;
-
 const AccessInfo = styled.div`
+  position: absolute;
+  font-size: 14px;
+  bottom: 20px;
   text-align: left;
   p {
     margin: 20px 0 0;
@@ -155,10 +146,13 @@ const AccessInfo = styled.div`
 `;
 
 const Copyright = styled.small`
+  position: absolute;
+  font-size: 14px;
+  right: 0;
+  bottom: 20px;
   text-align: right;
 
   ${media.mobile`
-    position: absolute;
     right: 5px;
     bottom: -20px;
   `}
@@ -216,35 +210,41 @@ const Footer = () => {
         </Nav>
         <CenterButtonWrapper>
           <Message>あなたの未来を、ここから。</Message>
-          <FooterEntryButton />
+          <EntryButton variant="big" />
           <FooterLinkWrapper>
-            <FooterLink to={EXTERNAL_LINKS.CORPORATE_SITE}>
+            <FooterLink
+              href={EXTERNAL_LINKS.CORPORATE_SITE}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <ArrowForwardIosIconStyled />
               Corporate Site
             </FooterLink>
-            <FooterLink to={EXTERNAL_LINKS.SERVICE_SITE}>
+            <FooterLink
+              href={EXTERNAL_LINKS.SERVICE_SITE}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <ArrowForwardIosIconStyled />
               Service Site
             </FooterLink>
           </FooterLinkWrapper>
-          <SpEntryButton />
+          <EntryButton variant="sp" />
         </CenterButtonWrapper>
 
-        <FooterTextWrapper>
-          <RobotImage src="/images/robot-right.png" alt="右を指しているロボ" />
-          <AccessInfo>
-            <p>アクセス</p>
-            <p>
-              〒104-0032
-              <br />
-              本社：東京都中央区八丁堀3丁目18-10
-              <br />
-              S-GATE FIT八丁堀9F
-            </p>
-            <p>TEL：03-6275-2080</p>
-          </AccessInfo>
-          <Copyright>&copy;FEDELTA Co., Ltd</Copyright>
-        </FooterTextWrapper>
+        <RobotImage src="/images/robot-right.png" alt="右を指しているロボ" />
+        <AccessInfo>
+          <p>アクセス</p>
+          <p>
+            〒104-0032
+            <br />
+            本社：東京都中央区八丁堀3丁目18-10
+            <br />
+            S-GATE FIT八丁堀9F
+          </p>
+          <p>TEL：03-6275-2080</p>
+        </AccessInfo>
+        <Copyright>&copy;FEDELTA Co., Ltd</Copyright>
       </FooterItem>
     </FooterContainer>
   );

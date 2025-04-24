@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import HeaderEntryButton from "./headerEntryButton";
 import media from "../../styles/mediaQuery";
+import EntryButton from "../common/entryButton";
 
 const navItems = [
   { label: "Top", id: "main-visual" },
@@ -224,7 +224,7 @@ const Header = () => {
           ))}
         </MobileNav>
 
-        <HeaderEntryButton />
+        <EntryButton variant="small" />
       </HeaderContainer>
     </HeaderWrapper>
   );
