@@ -47,6 +47,7 @@ const InfoWrapper = styled.div`
 const NameAgeText = styled.span`
   font-size: 12px;
   background-color: #ffffff;
+  padding: 2px 6px;
 
   ${media.mobile`
     font-size: 8px;
@@ -56,7 +57,6 @@ const NameAgeText = styled.span`
 const JobTag = styled.span`
   font-size: 12px;
   background-color: #00e676;
-  color: #000;
   padding: 2px 6px;
 
   ${media.mobile`

@@ -4,7 +4,7 @@ import SectionLayout from "../common/sectionLayout";
 import media from "../../styles/mediaQuery";
 
 const StepWrapper = styled.div`
-  width: 1140px;
+  width: 90%;
   margin: 0 auto;
 
   ${media.mobile`
