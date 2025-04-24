@@ -85,21 +85,24 @@ const ArrowButtonRight = styled(ArrowButton)`
   right: 0;
 `;
 
-const RotatingRobot = styled.img`
+const RotatingRobot = styled.img<{ $isPaused: boolean }>`
   position: absolute;
   right: 30px;
   transform: translateY(-50%);
   width: 25vw;
   cursor: pointer;
   animation: rotateY 2s linear infinite;
-  animation-play-state: running;
+  animation-play-state: ${({ $isPaused }) => // isPaused が true なら常に止める。false の場合は PC のみ hover で停止
+    $isPaused ? "paused" : "running"};
 
   ${media.mobile`
     right: 0;
   `}
 
-  &:hover {
-    animation-play-state: paused;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      animation-play-state: paused;
+    }
   }
 
   @keyframes rotateY {
@@ -112,12 +115,15 @@ const RotatingRobot = styled.img`
   }
 `;
 
+
 const SupportPage = ({ onClose }: { onClose: () => void }) => {
   // スライド対象の要素参照
   const scrollRef = useRef<HTMLDivElement>(null);
   // 現在のスライドインデックス
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalSlides = slides.length;
+
+  const [isPaused, setIsPaused] = useState(false);
 
   // 指定インデックスのスライドにスライドする処理
   const scrollToIndex = (index: number) => {
@@ -144,6 +150,10 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
     scrollToIndex(newIndex);
   };
 
+  const handleTap = () => {
+    setIsPaused((prev) => !prev);
+  };
+
   return (
     <SupportPageContainer>
       <ViewMoreTitle titleText="Support" />
@@ -151,6 +161,8 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
       <RotatingRobot
         src="/images/robot-dancing.png"
         alt="回っているロボット"
+        onClick={handleTap}
+        $isPaused={isPaused}
       />
 
       <SupportSectionTextBox>
