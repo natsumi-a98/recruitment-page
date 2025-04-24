@@ -87,10 +87,20 @@ const ArrowButtonRight = styled(ArrowButton)`
 
 const RotatingRobot = styled.img`
   position: absolute;
-  right: 100px;
+  right: 30px;
   transform: translateY(-50%);
   width: 25vw;
-  animation: rotateY 1s linear infinite;
+  cursor: pointer;
+  animation: rotateY 2s linear infinite;
+  animation-play-state: running;
+
+  ${media.mobile`
+    right: 0;
+  `}
+
+  &:hover {
+    animation-play-state: paused;
+  }
 
   @keyframes rotateY {
     from {
@@ -100,12 +110,7 @@ const RotatingRobot = styled.img`
       transform: translateY(-50%) rotateY(360deg);
     }
   }
-
-  ${media.mobile`
-    right: 50px;
-  `}
 `;
-
 
 const SupportPage = ({ onClose }: { onClose: () => void }) => {
   // スライド対象の要素参照
@@ -138,13 +143,14 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
   };
+
   return (
     <SupportPageContainer>
       <ViewMoreTitle titleText="Support" />
 
       <RotatingRobot
         src="/images/robot-dancing.png"
-        alt="ロボットのカーソル"
+        alt="回っているロボット"
       />
 
       <SupportSectionTextBox>
