@@ -24,7 +24,7 @@ const GorillaBackground = styled.img`
   width: 60%;
   object-fit: cover;
   opacity: 0.05;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   transform-origin: top center;
   transition: transform 0.1s ease-out;

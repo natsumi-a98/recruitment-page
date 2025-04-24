@@ -24,25 +24,15 @@ const MainVisualTitleContainer = styled.div`
 `;
 
 const MainTitle = styled.h1`
-  font-size: 128px;
   font-weight: bold;
   line-height: 0.9;
   margin: 0;
-
-  @media (max-width: 500px) {
-    font-size: 64px;
-  }
 `;
 
 const SubTitle = styled.h2`
-  font-size: 96px;
   font-weight: lighter;
   line-height: 0.9;
   margin: 0;
-
-  ${media.mobile`
-    font-size: 48px;
-  `}
 `;
 
 const BottomTextContainer = styled.div`
