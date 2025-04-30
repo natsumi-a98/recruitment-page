@@ -14,7 +14,7 @@ const ImageWrapper = styled.div`
   max-width: 1140px;
   margin: 0 auto;
 
-  ${media.mobile`
+  ${media.tablet`
     gap: 20px;
     max-width: 340px;
   `}
@@ -24,7 +24,7 @@ const ImageItem = styled.img`
   height: 330px;
   object-fit: cover;
 
-  ${media.mobile`
+  ${media.tablet`
     height: 160px;
   `}
 `;
@@ -71,7 +71,7 @@ const DataSection = () => {
         {imagesToRender.map((image, index) => (
           <ImageItem key={index} src={image.src} alt={image.alt} />
         ))}
-      <AnnotationText text="※2024年4月2日時点" />
+        <AnnotationText text="※2024年4月2日時点" />
       </ImageWrapper>
     </SectionLayout>
   );

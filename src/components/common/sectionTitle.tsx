@@ -8,10 +8,9 @@ interface SectionTitleProps {
 
 const TitleWrapper = styled.div`
   position: relative;
-  width: 100%;
   margin-bottom: 80px;
 
-  ${media.mobile`
+  ${media.tablet`
     margin-bottom: 24px;
   `}
 `;
@@ -34,7 +33,7 @@ const FrontTitle = styled.h3`
   left: 40px;
   z-index: 10;
 
-  ${media.mobile`
+  ${media.tablet`
     top: 16px;
     left: 16px;
   `}

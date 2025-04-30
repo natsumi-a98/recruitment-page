@@ -7,7 +7,7 @@ import DataSection from "../components/parts/data";
 import FlowSection from "../components/parts/flow";
 import Header from "../components/parts/header";
 import Footer from "../components/parts/footer";
-import ModalWrapper, { ModalKey } from "../components/common/modal";
+import Modal, { ModalKey } from "../components/common/modal";
 
 const HomePage = () => {
   // モーダルの状態
@@ -43,7 +43,7 @@ const HomePage = () => {
       </main>
       <Footer />
 
-      {modal && <ModalWrapper modal={modal} onClose={() => setModal(null)} />}
+      {modal && <Modal modal={modal} onClose={() => setModal(null)} />}
     </>
   );
 };

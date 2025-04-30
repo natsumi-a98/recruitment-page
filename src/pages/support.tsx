@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import ViewMoreTitle from "../components/common/viewMoreTitle";
 import Inexperienced from "../components/parts/inexperienced";
-import BackButton from "../components/common/backButton";
-import CircleButtonWrapper from "../components/common/circleButtonWrapper";
 import AfterTraining from "../components/parts/afterTraining";
 import { useRef, useState } from "react";
 import media from "../styles/mediaQuery";
+import HighlightText from "../components/common/highlightText";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const slides = [<Inexperienced />, <AfterTraining />];
 
@@ -14,7 +15,7 @@ const SupportPageContainer = styled.div``;
 const HighlightedHeading = styled.h6`
   line-height: 1.5;
 
-  ${media.mobile`
+  ${media.tablet`
     span {
       display: block;
     }
@@ -25,11 +26,6 @@ const SupportSectionTextBox = styled.div`
   flex: 1;
 `;
 
-const HighlightText = styled.span`
-  background-color: #00e676;
-  padding: 0 4px;
-`;
-
 const RootContainer = styled.div`
   flex: 1;
   overflow: hidden;
@@ -38,13 +34,13 @@ const RootContainer = styled.div`
   margin: 200px auto 0 auto;
 `;
 
-const HorizontalScrollWrapper = styled.div`
+const SliderWrapper = styled.div`
   display: flex;
   overflow: hidden;
   gap: 40px;
   padding: 0 24px;
 
-  ${media.mobile`
+  ${media.tablet`
     flex-direction: column;
     overflow: visible;
     gap: 30px;
@@ -55,7 +51,7 @@ const HorizontalScrollWrapper = styled.div`
 const SlideItem = styled.div`
   flex: 0 0 100%;
 
-  ${media.mobile`
+  ${media.tablet`
     flex: none;
     width: 100%;
   `}
@@ -65,14 +61,13 @@ const ArrowButton = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
+  background: transparent;
   font-size: 24px;
   border: none;
   padding: 10px;
   cursor: pointer;
 
-  ${media.mobile`
+  ${media.tablet`
     display: none;
   `}
 `;
@@ -92,10 +87,11 @@ const RotatingRobot = styled.img<{ $isPaused: boolean }>`
   width: 25vw;
   cursor: pointer;
   animation: rotateY 2s linear infinite;
-  animation-play-state: ${({ $isPaused }) => // isPaused が true なら常に止める。false の場合は PC のみ hover で停止
-    $isPaused ? "paused" : "running"};
+  animation-play-state: ${(
+    { $isPaused } // isPaused が true なら常に止める。false の場合は PC のみ hover で停止
+  ) => ($isPaused ? "paused" : "running")};
 
-  ${media.mobile`
+  ${media.tablet`
     right: 0;
   `}
 
@@ -115,8 +111,7 @@ const RotatingRobot = styled.img<{ $isPaused: boolean }>`
   }
 `;
 
-
-const SupportPage = ({ onClose }: { onClose: () => void }) => {
+const SupportPage = () => {
   // スライド対象の要素参照
   const scrollRef = useRef<HTMLDivElement>(null);
   // 現在のスライドインデックス
@@ -137,14 +132,14 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
   };
 
   // 左矢印クリック時の処理
-  const handleScrollLeft = () => {
+  const handleSlideLeft = () => {
     const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
   };
 
   // 右矢印クリック時の処理
-  const handleScrollRight = () => {
+  const handleSlideRight = () => {
     const newIndex = (currentIndex + 1) % totalSlides;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
@@ -170,7 +165,6 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
           <span>「新しいモノ」を</span>
           <span>キャッチアップする能力</span>
         </HighlightedHeading>
-
         <p>
           新たな業務に従事し、その業務を習得・改善するための学習時間があるように、
           <br />
@@ -188,7 +182,8 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
         <p>
           また、学習を進めていく中で、
           <br />
-          「現在持ち合わせているスキルの向上」や「今までとは異なるキャリアを進む」等の
+          <HighlightText>現在持ち合わせているスキルの向上</HighlightText>や
+          <HighlightText>今までとは異なるキャリアを進む</HighlightText>等の
           <br />
           見据える先が明確になっていきます。
         </p>
@@ -201,19 +196,18 @@ const SupportPage = ({ onClose }: { onClose: () => void }) => {
 
       <RootContainer>
         <h6>経験・未経験で進むルート</h6>
-        <ArrowButtonLeft onClick={handleScrollLeft}>←</ArrowButtonLeft>
-        {/** キャリアイメージをスライダーで表示 */}
-        <HorizontalScrollWrapper ref={scrollRef}>
+        <ArrowButtonLeft onClick={handleSlideLeft}>
+          <ArrowBackIosIcon sx={{ fontSize: 36 }} />
+        </ArrowButtonLeft>
+        <SliderWrapper ref={scrollRef}>
           {slides.map((SlideComponent, index) => (
             <SlideItem key={index}>{SlideComponent}</SlideItem>
           ))}
-        </HorizontalScrollWrapper>
-        <ArrowButtonRight onClick={handleScrollRight}>→</ArrowButtonRight>
+        </SliderWrapper>
+        <ArrowButtonRight onClick={handleSlideRight}>
+          <ArrowForwardIosIcon sx={{ fontSize: 36 }} />
+        </ArrowButtonRight>
       </RootContainer>
-
-      <CircleButtonWrapper>
-        <BackButton onClick={onClose} />
-      </CircleButtonWrapper>
     </SupportPageContainer>
   );
 };

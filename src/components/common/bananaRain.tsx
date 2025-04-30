@@ -10,7 +10,7 @@ const fallDesktop = keyframes`
     opacity: 0.5;
   }
   100% {
-    transform: translateY(350vh) rotate(360deg);
+    transform: translateY(280vh) rotate(360deg);
     opacity: 0;
   }
 `;

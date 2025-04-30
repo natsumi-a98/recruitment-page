@@ -6,11 +6,10 @@ interface ViewMoreTitleProps {
 }
 
 const ViewMoreTitleWrapper = styled.div`
-  width: 100%;
   margin: 80px 0;
 
-  ${media.mobile`
-    margin: 40px 0;
+  ${media.tablet`
+    margin: 0 0 40px 0;
   `}
 `;
 

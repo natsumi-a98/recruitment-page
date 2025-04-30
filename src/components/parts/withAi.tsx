@@ -3,6 +3,7 @@ import styled, { css, keyframes } from "styled-components";
 import SectionTitle from "../common/sectionTitle";
 import SectionLayout from "../common/sectionLayout";
 import media from "../../styles/mediaQuery";
+import HighlightText from "../common/highlightText";
 
 const WithAIContainer = styled.section`
   position: relative;
@@ -37,10 +38,10 @@ const RobotImage = styled.img.withConfig({
       animation: ${SlideInFromBottom} 1s ease-out forwards;
     `}
 
-  ${media.mobile`
-    height: 35vh;
+  ${media.tablet`
+    height: 40vw;
     bottom: -50px;
-    left: 0;
+    left: 10px;
   `}
 `;
 
@@ -85,7 +86,9 @@ const WithAISection = () => {
         <SectionTitle backgroundText="With AI" frontText="AIと共に進化する" />
         <WithAiSectionTextBlock>
           <p>
-            「チャットGPT」や「チャットボット」という言葉を耳にしたことがあるのではないでしょうか。
+            <HighlightText>チャットGPT</HighlightText>や
+            <HighlightText>チャットボット</HighlightText>
+            という言葉を耳にしたことがあるのではないでしょうか。
           </p>
           <p>
             大規模言語モデル、生成AI、Transformerモデルなど、技術的な分類だけで見ても数多くのモデルが存在します。

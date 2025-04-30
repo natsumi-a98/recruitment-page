@@ -8,7 +8,7 @@ import media from "../../styles/mediaQuery";
 const ContentWrapper = styled.div`
   display: flex;
 
-  ${media.mobile`
+  ${media.tablet`
     flex-direction: column;
   `}
 `;
@@ -16,21 +16,20 @@ const ContentWrapper = styled.div`
 const BodyTextBlock = styled.div`
   max-width: 650px;
 
-  h5 {
-    font-weight: normal;
-    display: inline-flex;
-    align-items: center;
+  img {
+    width: auto;
+    height: 80px;
   }
 
   p {
     margin: 50px 0;
   }
 
-  ${media.mobile`
-    h5 {
-      font-weight: normal;
-      display: inline-flex;
-      align-items: center;
+  ${media.tablet`
+    img {
+      width: auto;
+      height: 40px;
+      margin: 40px 0;
     }
 
     p {
@@ -101,10 +100,20 @@ const GorillaRobotImage = styled.img`
   animation: ${sway} 1s ease-in-out infinite;
   z-index: 200;
 
-  ${media.mobile`
-    margin-top: 150px;
-    height: 50vw;
+  ${media.tablet`
+    margin-top: 240px;
+    height: 45vw;
+    right: 20px;
   `}
+`;
+
+const CircleButtonWrapperStyled = styled(CircleButtonWrapper)`
+  left: 15%;
+
+  ${media.tablet`
+      left: -20%;
+      margin: 40px 0;
+    `}
 `;
 
 interface LearnSectionProps {
@@ -117,7 +126,10 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
       <SectionTitle backgroundText="Learn" frontText="研修制度" />
       <ContentWrapper>
         <BodyTextBlock>
-          <h5>『うぇぶくり』</h5>
+          <img
+            src="../../../public/images/logo_webCreate.svg"
+            alt="うぇぶくりロゴ"
+          />
           <p>
             弊社独自のカリキュラムで、環境構築からマンツーマン指導、チーム開発を通じて、エンジニアとしての基礎を確実に築けます。
           </p>
@@ -126,14 +138,14 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
           src="/images/webcreate-gorilla.png"
           alt="浮かぶゴリラ"
         /> */}
-        <CircleButtonWrapper>
-          <ViewMoreButton onClick={onViewMoreClick} />
-        </CircleButtonWrapper>
         {/* 上指してるゴリラ
         <GorillaRobotImage
-          src="/images/gorillarobot-up.png"
-          alt="ゴリラロボット"
+        src="/images/gorillarobot-up.png"
+        alt="ゴリラロボット"
         /> */}
+        <CircleButtonWrapperStyled>
+          <ViewMoreButton onClick={onViewMoreClick} />
+        </CircleButtonWrapperStyled>
         <GorillaRobotImage
           src="/images/gorillarobot-left.png"
           alt="ゴリラロボット"

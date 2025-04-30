@@ -23,38 +23,39 @@ const HeaderWrapper = styled.header`
   background-color: #ffffff;
   z-index: 1000;
 
-  ${media.mobile`
+  ${media.tablet`
+    height: 55px;
     background-color: transparent;
+    position: relative;
   `}
 `;
 
 const HeaderContainer = styled.div`
-  align-items: center;
-  display: flex;
-  width: 100%;
-  height: 100px;
   max-width: 1300px;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
   z-index: 1000;
 
-  ${media.mobile`
+  ${media.tablet`
     height: 55px;
   `}
 `;
 
-const Logo = styled.img`
-  height: 42px;
-  width: 100px;
+const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
 
-  ${media.mobile`
-    width: 100px;
-    background-color: #ffffff;
+  ${media.tablet`
+    position: relative;
   `}
+`;
+
+const Logo = styled.img`
+  width: auto;
+  height: 42px;
 `;
 
 const Nav = styled.nav`
@@ -66,7 +67,7 @@ const Nav = styled.nav`
   left: 50%;
   transform: translateX(-50%);
 
-  ${media.mobile`
+  ${media.tablet`
     display: none;
   `}
 `;
@@ -97,7 +98,7 @@ const NavItem = styled.li`
 const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
   display: none;
 
-  ${media.mobile`
+  ${media.tablet`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,7 +106,9 @@ const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
     height: 55px;
     background-color: #ffffff;
     border: 2px solid #0e0e0e;
-    position: relative;
+    position: fixed;
+    top: 0;
+    right: 0;
     z-index: 2000;
     cursor: pointer;
   `}
@@ -149,8 +152,8 @@ const MobileNav = styled.div<MobileNavProps>`
   transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out,
     visibility 0.3s ease-in-out;
 
-  ${media.mobile`
-    position: absolute;
+  ${media.tablet`
+    position: fixed;
   `}
 `;
 
@@ -193,10 +196,12 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <HeaderContainer>
-        <Logo
-          src="/images/recruit-logo.ac423ca5.png"
-          alt="FEDELTA_リクルートページロゴ"
-        />
+        <LogoWrapper>
+          <Logo
+            src="/images/recruit-logo.ac423ca5.png"
+            alt="FEDELTA_リクルートページロゴ"
+          />
+        </LogoWrapper>
         <Nav>
           {navItems.map((item) => (
             <NavItem key={item.id} onClick={() => scrollToSection(item.id)}>
@@ -224,7 +229,7 @@ const Header = () => {
           ))}
         </MobileNav>
 
-        <EntryButton variant="small" />
+        <EntryButton variant="medium" />
       </HeaderContainer>
     </HeaderWrapper>
   );

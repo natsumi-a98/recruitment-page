@@ -22,7 +22,8 @@ const EmployeeBoxesWrapper = styled.div`
   justify-content: center;
   margin-bottom: 80px;
 
-  ${media.mobile`
+  ${media.tablet`
+    gap: 10px;
     margin-bottom: 40px;
   `}
 `;

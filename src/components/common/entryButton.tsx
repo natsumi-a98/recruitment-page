@@ -6,7 +6,7 @@ import { EXTERNAL_LINKS } from "../../constants/urls";
 
 // PC版のヘッダー、フッター・SP版でスタイル切り替え
 type EntryButtonProps = {
-  variant: "big" | "small" | "sp";
+  variant: "large" | "medium" | "small" | "tiny";
 };
 
 const commonStyles = css`
@@ -15,37 +15,50 @@ const commonStyles = css`
   justify-content: center;
 `;
 
-// フッター用エントリーボタン
-const BigButton = styled(BaseButton)`
+// PC版フッター用エントリーボタン
+const LargeButton = styled(BaseButton)`
   ${commonStyles};
-  height: 180px;
   width: 720px;
+  height: 180px;
   border-radius: 90px;
   font-size: 48px;
 
-  ${media.mobile`
+  ${media.tablet`
     display: none;
   `}
 `;
 
-// ヘッダー用エントリーボタン
-const SmallButton = styled(BaseButton)`
+// PC版ヘッダー用エントリーボタン
+const MediumButton = styled(BaseButton)`
   ${commonStyles};
   height: 60px;
   padding: 0 20px;
   border-radius: 30px;
   font-size: 32px;
 
-  ${media.mobile`
+  ${media.tablet`
     display: none;
   `}
 `;
 
-// SP版用エントリーボタン
-const SpButton = styled(BaseButton)`
+// SP版フッター用エントリーボタン
+const SmallButton = styled(BaseButton)`
   display: none;
 
-  ${media.mobile`
+  ${media.tablet`
+    ${commonStyles};
+    padding: 0 40px;
+    height: 50px;
+    border-radius: 35px;
+    font-size: 20px;
+  `}
+`;
+
+// SP版ヘッダー用エントリーボタン
+const TinyButton = styled(BaseButton)`
+  display: none;
+
+  ${media.tablet`
     ${commonStyles};
     width: 130px;
     height: 35px;
@@ -54,32 +67,34 @@ const SpButton = styled(BaseButton)`
   `}
 `;
 
-const StyledArrowIcon = styled(ArrowForwardIosIcon)<{ size: number }>`
-  font-size: ${({ size }) => size}px !important;
-  margin: 0 8px 0 0;
-`;
-
 const EntryButton = ({ variant }: EntryButtonProps) => {
   const handleClick = () => {
     window.location.href = EXTERNAL_LINKS.ENTRY_PAGE;
   };
 
   switch (variant) {
-    case "big":
-      return <BigButton onClick={handleClick}>ENTRY</BigButton>;
+    case "large":
+      return <LargeButton onClick={handleClick}>ENTRY</LargeButton>;
+    case "medium":
+      return (
+        <MediumButton onClick={handleClick}>
+          <ArrowForwardIosIcon sx={{ fontSize: 32 }} />
+          ENTRY
+        </MediumButton>
+      );
     case "small":
       return (
         <SmallButton onClick={handleClick}>
-          <StyledArrowIcon size={32} />
+          <ArrowForwardIosIcon sx={{ fontSize: 20 }} />
           ENTRY
         </SmallButton>
       );
-    case "sp":
+    case "tiny":
       return (
-        <SpButton onClick={handleClick}>
-          <StyledArrowIcon size={16} />
+        <TinyButton onClick={handleClick}>
+          <ArrowForwardIosIcon sx={{ fontSize: 16 }} />
           ENTRY
-        </SpButton>
+        </TinyButton>
       );
     default:
       return null;

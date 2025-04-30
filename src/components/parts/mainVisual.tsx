@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
 import media from "../../styles/mediaQuery";
 import EntryButton from "../common/entryButton";
+import ScrollDownIndicator from "../common/scrollDownIndicator";
 
 const MainVisualContainer = styled.section<{ id?: string }>`
   position: relative;
@@ -13,8 +14,8 @@ const MainVisualContainer = styled.section<{ id?: string }>`
   align-items: center;
   padding: 0;
 
-  ${media.mobile`
-    height: 100vh;
+  ${media.tablet`
+    height: calc(100vh - 55px);
   `}
 `;
 
@@ -24,7 +25,7 @@ const MainVisualTitleContainer = styled.div`
 `;
 
 const MainTitle = styled.h1`
-  font-weight: bold;
+  font-weight: 500;
   line-height: 0.9;
   margin: 0;
 `;
@@ -37,11 +38,12 @@ const SubTitle = styled.h2`
 
 const BottomTextContainer = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
   z-index: 5;
 
-  ${media.mobile`
+  ${media.tablet`
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -50,18 +52,16 @@ const BottomTextContainer = styled.div`
 `;
 
 const HashTagText = styled.h4`
-  font-weight: bold;
+  font-weight: 500;
   margin: 0;
 `;
 
 const DescriptionText = styled.p`
-  font-size: 20px;
   line-height: 1.5;
   margin-top: 10px;
   margin-bottom: 0;
 
-  ${media.mobile`
-    font-size: 16px;
+  ${media.tablet`
     margin-bottom: 30px;
   `}
 `;
@@ -69,7 +69,7 @@ const DescriptionText = styled.p`
 const SpEntryButtonWrapper = styled.div`
   display: none;
 
-  ${media.mobile`
+  ${media.tablet`
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
@@ -90,9 +90,9 @@ const RobotImage = styled.img.withConfig({
 })<{ animate: boolean }>`
   position: absolute;
   margin: 0 calc(50% - 50vw);
-  bottom: 0;
+  bottom: 200px;
   right: 0;
-  height: 60vh;
+  height: 35vw;
   z-index: 0;
   transform: translateX(100%);
 
@@ -102,10 +102,21 @@ const RobotImage = styled.img.withConfig({
       animation: ${SlideInFromRight} 1s ease-out forwards;
     `}
 
-  ${media.mobile`
-    height: 40vh;
+  ${media.tablet`
+    height: 40vw;
     right: 0;
-    top: 10px;
+    top: 150px;
+  `}
+`;
+
+const ScrollDownIndicatorWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+
+  ${media.tablet`
+    display: none;
   `}
 `;
 
@@ -163,7 +174,7 @@ const MainVisual = () => {
           そんな人材を、私たちは求めています。
         </DescriptionText>
         <SpEntryButtonWrapper>
-          <EntryButton variant="sp"/>
+          <EntryButton variant="tiny" />
         </SpEntryButtonWrapper>
       </BottomTextContainer>
 
@@ -172,6 +183,9 @@ const MainVisual = () => {
         alt="右から覗き込むロボット"
         animate={showRobot}
       />
+      <ScrollDownIndicatorWrapper>
+        <ScrollDownIndicator />
+      </ScrollDownIndicatorWrapper>
     </MainVisualContainer>
   );
 };

@@ -22,7 +22,7 @@ const FooterContainer = styled.footer`
   background-color: #0e0e0e;
   color: #ffffff;
 
-  ${media.mobile`
+  ${media.tablet`
     height: 150px;
     margin-top: 40px;
   `}
@@ -48,7 +48,7 @@ const Message = styled.div`
   margin-bottom: 20px;
   text-shadow: 5px 5px 10px #000000;
 
-  ${media.mobile`
+  ${media.tablet`
     display: none;
   `}
 `;
@@ -60,7 +60,7 @@ const FooterLinkWrapper = styled.div`
   margin-top: 50px;
   text-align: center;
 
-  ${media.mobile`
+  ${media.tablet`
     display: none;
   `}
 `;
@@ -80,11 +80,6 @@ const FooterLink = styled.a`
   }
 `;
 
-const ArrowForwardIosIconStyled = styled(ArrowForwardIosIcon)`
-  font-size: 36px !important;
-  margin: 0;
-`;
-
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
@@ -96,7 +91,7 @@ const Nav = styled.nav`
   list-style: none;
   padding: 0;
 
-  ${media.mobile`
+  ${media.tablet`
     display: none;
   `}
 `;
@@ -140,7 +135,7 @@ const AccessInfo = styled.div`
     margin: 20px 0 0;
   }
 
-  ${media.mobile`
+  ${media.tablet`
     display: none;
   `}
 `;
@@ -152,9 +147,9 @@ const Copyright = styled.small`
   bottom: 20px;
   text-align: right;
 
-  ${media.mobile`
+  ${media.tablet`
     right: 5px;
-    bottom: -20px;
+    bottom: 0;
   `}
 `;
 
@@ -179,16 +174,16 @@ const RobotImage = styled.img`
   animation: ${sway} 1.5s ease-in-out infinite;
   z-index: 200;
 
-  ${media.mobile`
+  ${media.tablet`
     left: 80px;
-    bottom: 0;
+    bottom: 20px;
     height: 20vw;
     animation: ${swayMobile} 1.5s ease-in-out infinite;
   `}
 
-  @media (max-width: 500px) {
+  ${media.mobile`
     left: 10%;
-  }
+  `}
 `;
 
 const Footer = () => {
@@ -210,14 +205,14 @@ const Footer = () => {
         </Nav>
         <CenterButtonWrapper>
           <Message>あなたの未来を、ここから。</Message>
-          <EntryButton variant="big" />
+          <EntryButton variant="large" />
           <FooterLinkWrapper>
             <FooterLink
               href={EXTERNAL_LINKS.CORPORATE_SITE}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ArrowForwardIosIconStyled />
+              <ArrowForwardIosIcon sx={{ fontSize: 36 }} />
               Corporate Site
             </FooterLink>
             <FooterLink
@@ -225,11 +220,11 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ArrowForwardIosIconStyled />
+              <ArrowForwardIosIcon sx={{ fontSize: 36 }} />
               Service Site
             </FooterLink>
           </FooterLinkWrapper>
-          <EntryButton variant="sp" />
+          <EntryButton variant="small" />
         </CenterButtonWrapper>
 
         <RobotImage src="/images/robot-right.png" alt="右を指しているロボ" />

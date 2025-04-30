@@ -11,6 +11,7 @@ import { StepIconProps } from "@mui/material/StepIcon";
 import { styled } from "@mui/system";
 import CheckIcon from "@mui/icons-material/Check";
 import { StepConnector } from "@mui/material";
+import theme from "../../constants/theme";
 
 // カスタムステップアイコンのスタイル
 const CustomStepIcon = styled("div")<StepIconProps>(
@@ -42,9 +43,12 @@ const CustomStepLabel = styled(StepLabel, {
   completed?: boolean;
 }>(({ active, completed }) => ({
   "& .MuiStepLabel-label": {
-    fontSize: "20px",
-    fontWeight: "bold",
-    color: active || completed ? "#ffffff" : "#b0bec5", // アクティブまたは完了したステップのラベルは白、それ以外は灰色
+    fontSize: "16px", // モバイル用（デフォルト）
+    fontWeight: 600,
+    color: active || completed ? "#0e0e0e" : "#b0bec5",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "18px", // md以上のサイズのとき
+    },
   },
 }));
 
@@ -104,7 +108,14 @@ const VerticalLinearStepper: React.FC = () => {
   const handleReset = () => setActiveStep(0);
 
   return (
-    <Box sx={{ width: 350 }}>
+    <Box
+      sx={{
+        width: {
+          sx: 300,
+          md: 350,
+        },
+      }}
+    >
       <Stepper
         activeStep={activeStep}
         orientation="vertical"
@@ -146,7 +157,7 @@ const VerticalLinearStepper: React.FC = () => {
 
             {/* ステップの詳細情報 */}
             <CustomStepContent>
-              <Box>
+              <Box sx={{ width: 250 }}>
                 {step.description.map((line, i) => (
                   // 各ステップの詳細を表示
                   <Typography key={i}>{line}</Typography>
@@ -181,7 +192,12 @@ const VerticalLinearStepper: React.FC = () => {
         <Paper
           square
           elevation={0}
-          sx={{ p: 3, backgroundColor: "transparent", color: "#0e0e0e" }}
+          sx={{
+            p: 3,
+            backgroundColor: "transparent",
+            color: "#0e0e0e",
+            width: 300,
+          }}
         >
           {["うぇぶくり卒業", "ITS事業部に異動"].map((line, i) => (
             // 完了メッセージを表示

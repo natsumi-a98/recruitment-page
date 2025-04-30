@@ -1,7 +1,14 @@
-import { useRef, useState } from "react";
+import {
+  AccordionGroup,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  Box,
+} from "@mui/joy";
 import styled from "styled-components";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import media from "../../styles/mediaQuery";
+import { useState } from "react";
 
 const listData = [
   {
@@ -81,97 +88,51 @@ const listData = [
   },
 ];
 
-const ListHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  height: 69px;
-  border-bottom: 3px solid #0e0e0e;
-`;
-
-const CareerExampleTitle = styled.span`
-  font-size: 24px;
-
-  ${media.mobile`
-    font-size: 20px;
-  `}
-`;
-
-const CareerExamples = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== "maxHeight" && prop !== "isOpen"
-})<{ maxHeight: string; isOpen: boolean }>`
-  overflow: hidden;
-  max-height: ${({ maxHeight }) => maxHeight};
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  transition: max-height 0.5s ease, opacity 0.3s ease;
-  padding: ${({ isOpen }) => (isOpen ? "10px 0 10px 20px" : "0 0 0 20px")};
-  white-space: pre-line;
-`;
-
-const CareerExampleItems = styled.div`
-  margin-bottom: 8px;
-`;
-
 const AfterTrainingContainer = styled.div`
   width: 80%;
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
-
-  ${media.mobile`
+  ${media.tablet`
     width: 100%;
   `}
 `;
 
+const StyledAccordionSummary = styled(AccordionSummary)`
+  font-size: 20px;
+  ${media.tablet`
+    font-size: 16px;
+  `}
+`;
+
 const AfterTraining = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  // リスト開閉をトグル
-  const toggleItem = (index: number) => {
-    setOpenIndex((prev) => (prev === index ? null : index));
+  const handleChange = (index: number) => {
+    setExpandedIndex((prev) => (prev === index ? null : index));
   };
-
-  // ref 登録関数
-  const registerRef = (index: number) => (el: HTMLDivElement | null) => {
-    contentRefs.current[index] = el;
-  };
-
   return (
     <>
       <h6>経験者・研修後のキャリアイメージ</h6>
       <AfterTrainingContainer>
-        {listData.map((item, index) => {
-          const isOpen = openIndex === index;
-          const maxHeight = isOpen
-            ? `${contentRefs.current[index]?.scrollHeight ?? 0}px`
-            : "0px";
-
-          return (
-            <div key={index}>
-              <ListHeader onClick={() => toggleItem(index)}>
-                <CareerExampleTitle>{item.title}</CareerExampleTitle>
-                <KeyboardArrowDownIcon
-                  style={{
-                    transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                    transition: "transform 0.3s",
-                  }}
-                />
-              </ListHeader>
-
-              <CareerExamples
-                ref={registerRef(index)}
-                isOpen={isOpen}
-                maxHeight={maxHeight}
-              >
-                {item.content.map((text, i) => (
-                  <CareerExampleItems key={i}>{text}</CareerExampleItems>
-                ))}
-              </CareerExamples>
-            </div>
-          );
-        })}
+        <AccordionGroup variant="plain">
+          {listData.map((item, index) => (
+            <Accordion
+              key={index}
+              expanded={expandedIndex === index}
+              onChange={() => handleChange(index)}
+            >
+              <StyledAccordionSummary>{item.title}</StyledAccordionSummary>
+              <AccordionDetails>
+                <Box>
+                  {item.content.map((text, i) => (
+                    <Typography key={i} sx={{ mb: 1, ml: 4 }}>
+                      {text}
+                    </Typography>
+                  ))}
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+          ))}
+        </AccordionGroup>
       </AfterTrainingContainer>
     </>
   );

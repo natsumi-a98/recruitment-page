@@ -10,9 +10,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: "Noto Sans", sans-serif;
-    color: #0E0E0E;
-    
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    color: #0e0e0e;
+    letter-spacing: 0.1em;
+
     user-select: none;
     overflow-x: hidden;
   }
@@ -31,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     line-height: 1.6;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   h1 {
@@ -65,9 +67,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /* モバイル版レイアウト */
-  ${media.mobile`
+  ${media.tablet`
     body {
       font-size: 16px;
+      letter-spacing: 0.05em;
     }
 
     h1 {
