@@ -18,7 +18,7 @@ const BodyTextBlock = styled.div`
 
   img {
     width: auto;
-    height: 80px;
+    height: 100px;
   }
 
   p {
@@ -29,7 +29,7 @@ const BodyTextBlock = styled.div`
     img {
       width: auto;
       height: 40px;
-      margin: 40px 0;
+      margin-top: 30px;
     }
 
     p {
@@ -95,13 +95,13 @@ const sway = keyframes`
 const GorillaRobotImage = styled.img`
   position: absolute;
   margin: 0 calc(50% - 50vw);
-  right: 0;
+  right: 15px;
   height: 27vw;
   animation: ${sway} 1s ease-in-out infinite;
   z-index: 200;
 
   ${media.tablet`
-    margin-top: 240px;
+    margin-top: 200px;
     height: 45vw;
     right: 20px;
   `}
@@ -109,10 +109,10 @@ const GorillaRobotImage = styled.img`
 
 const CircleButtonWrapperStyled = styled(CircleButtonWrapper)`
   left: 15%;
+  margin-top: 30px;
 
   ${media.tablet`
       left: -20%;
-      margin: 40px 0;
     `}
 `;
 
@@ -126,13 +126,13 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
       <SectionTitle backgroundText="Learn" frontText="研修制度" />
       <ContentWrapper>
         <BodyTextBlock>
+          <p>
+            弊社独自のカリキュラムで、環境構築からマンツーマン指導、チーム開発を通じて、エンジニアとしての基礎を確実に築けます。
+          </p>
           <img
             src="../../../public/images/logo_webCreate.svg"
             alt="うぇぶくりロゴ"
           />
-          <p>
-            弊社独自のカリキュラムで、環境構築からマンツーマン指導、チーム開発を通じて、エンジニアとしての基礎を確実に築けます。
-          </p>
         </BodyTextBlock>
         {/* <GorillaBubble
           src="/images/webcreate-gorilla.png"
