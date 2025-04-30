@@ -49,7 +49,7 @@ const sway = keyframes`
 const RobotImage = styled.img`
   position: absolute;
   margin: 0 calc(50% - 50vw);
-  right: 0;
+  right: 15px;
   height: 22vw;
   animation: ${sway} 1s ease-in-out infinite;
   z-index: 200;
