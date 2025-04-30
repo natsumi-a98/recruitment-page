@@ -165,13 +165,8 @@ const MainVisual = () => {
       <BottomTextContainer>
         <HashTagText>#AIを標準基準に</HashTagText>
         <DescriptionText>
-          それは、単なる技術の導入ではありません。
-          <br />
-          変化の激しい時代において、常に最前線で活躍するために。
-          <br />
-          AIを使いこなし、変化を力に変えていく。
-          <br />
-          そんな人材を、私たちは求めています。
+          AIを活用し変化に適応するだけでなく、主導する。<br/>
+          私たちは、その最前線に立つ人材を求めています。
         </DescriptionText>
         <SpEntryButtonWrapper>
           <EntryButton variant="tiny" />

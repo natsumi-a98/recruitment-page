@@ -27,7 +27,6 @@ const Frame = styled.div`
 
   ${media.tablet`
     width: 98%;
-    height: 370px;
     flex-direction: column;
     margin-bottom: 0;
   `}
@@ -39,8 +38,6 @@ const LeftImageArea = styled.div`
   height: auto;
 
   ${media.tablet`
-    width: 45%;
-    height: 45%;
   `}
 `;
 

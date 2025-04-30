@@ -18,14 +18,16 @@ const Box = styled.div`
     width: 60%;
     padding: 15px;
   `}
-  
+
   ${media.mobile`
     width: 80%;
     padding: 15px;
   `}
 `;
 
-const Title = styled.h6`
+const Title = styled.p`
+  font-size: 24px;
+  font-weight: 700;
   margin: 30px 0;
 
   ${media.tablet`
@@ -38,11 +40,26 @@ const Body = styled.p`
   & + & {
     margin-top: 20px;
   }
+
+  &:last-of-type {
+    margin-bottom: 20px;
+  }
+`;
+
+const Icon = styled.img`
+  width: auto;
+  height: 150px;
+  margin-top: auto;
+
+  ${media.tablet`
+    height: 130px;
+  `}
 `;
 
 interface SystemBoxProps {
   title: string;
   body: string[];
+  icon?: string;
 }
 
 // 引用符で囲まれた部分を太字にする関数
@@ -56,7 +73,7 @@ const formatText = (text: string) => {
   );
 };
 
-const SystemBox = ({ title, body }: SystemBoxProps) => {
+const SystemBox = ({ title, body, icon }: SystemBoxProps) => {
   return (
     <Box>
       {/* タイトル部分 */}
@@ -65,6 +82,7 @@ const SystemBox = ({ title, body }: SystemBoxProps) => {
       {body.map((paragraph, index) => (
         <Body key={index}>{formatText(paragraph)}</Body> // formatTextを使用
       ))}
+      {icon && <Icon src={icon} alt={`${title}のアイコン`} />}
     </Box>
   );
 };
