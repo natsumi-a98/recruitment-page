@@ -66,6 +66,23 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  .circle-button-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-circle 2s linear;
+  background-color: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes ripple-circle {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
   /* モバイル版レイアウト */
   ${media.tablet`
     body {
