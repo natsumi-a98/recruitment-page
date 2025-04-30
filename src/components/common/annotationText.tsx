@@ -7,7 +7,7 @@ const Text = styled.p`
   text-align: center;
   margin: 0;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 10px;
   `}
 `;

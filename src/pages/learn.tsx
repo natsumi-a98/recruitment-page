@@ -1,46 +1,56 @@
 import styled from "styled-components";
 import ViewMoreTitle from "../components/common/viewMoreTitle";
-import BackButton from "../components/common/backButton";
-import CircleButtonWrapper from "../components/common/circleButtonWrapper";
 import SystemBoxes from "../components/parts/systemBoxes";
 import EmployeeBoxes from "../components/parts/employeeBoxes";
 import media from "../styles/mediaQuery";
-import { useState, useEffect, useRef } from "react";
 import BananaRain from "../components/common/bananaRain";
+import HighlightText from "../components/common/highlightText";
+
+type LearnPageProps = {
+  scrollTop: number;
+};
 
 const LearnPageContainer = styled.div`
-  position: relative;
   z-index: 1;
-  height: 100%;
-  overflow-y: auto;
-  padding-bottom: 0;
 `;
 
-const GorillaBackground = styled.img`
+const GorillaBackground = styled.img<{ scale: number }>`
   position: fixed;
-  left: 50%;
   bottom: 10%;
-  transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%) scale(${(props) => props.scale});
   width: 60%;
-  object-fit: cover;
-  opacity: 0.05;
+  transform-origin: top center;
+  transition: transform 0.1s linear;
   z-index: -1;
   pointer-events: none;
-  transform-origin: top center;
-  transition: transform 0.1s ease-out;
 
-  ${media.mobile`
+  ${media.tablet`
+    bottom: 5%;
     width: 80%;
   `}
 `;
 
-const LearnPageTextBox = styled.div``;
+const LearnPageTextBox = styled.div`
+  img {
+    width: auto;
+    height: 100px;
+  }
+
+  ${media.tablet`
+    img {
+      width: auto;
+      height: 60px;
+    }
+  `}
+`;
 
 const WebcreateContainer = styled.div`
   margin: 80px 0;
   display: flex;
 
-  ${media.mobile`
+  ${media.tablet`
+    margin: 40px 0;
     flex-direction: column;
   `}
 `;
@@ -53,11 +63,11 @@ const WebcreatePng = styled.div`
     margin: 0;
   }
 
-  ${media.mobile`
-  img {
-    width: 100%;
-    height: auto;
-  }
+  ${media.tablet`
+    img {
+      width: 100%;
+      height: auto;
+    }
   `}
 `;
 
@@ -68,12 +78,27 @@ const WebcreateTextBox = styled.div`
   margin-left: 50px;
 
   p {
-    margin-top:0;
+    font-size: 20px;
+    margin-top: 0;
   }
 
-  ${media.mobile`
+  ul {
+    font-size: 16px;
+  }
+
+  ${media.tablet`
     flex-direction: row;
     margin-left: 0;
+
+    p {
+      font-size: 16px;
+      margin: 30px 0 12px 0;
+    }
+
+    ul {
+      font-size: 12px;
+      padding: 0 0 0 12px;
+    }
   `}
 `;
 
@@ -92,39 +117,27 @@ const CenterWrapper = styled.div`
   justify-content: center;
 `;
 
-const LearnPage = ({ onClose }: { onClose: () => void }) => {
-  const [scale, setScale] = useState(1);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const scrollTop = container.scrollTop;
-      const newScale = 1 + scrollTop / 2000;
-      setScale(Math.min(newScale, 2));
-    };
-
-    container.addEventListener("scroll", handleScroll);
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
+const LearnPage = ({ scrollTop }: LearnPageProps) => {
+  const scale = Math.min(1 + scrollTop / 2000, 2);
 
   return (
-    <LearnPageContainer ref={containerRef}>
-      <GorillaBackground
-        src="/images/gorillarobot-front.png"
-        alt="ゴリラ背景"
-        style={{
-          transform: `translateX(-50%) scale(${scale})`,
-        }}
-      />
+    <LearnPageContainer>
       <BananaRain />
+
+      <GorillaBackground
+        src="/images/gorillarobot-front0.05.png"
+        alt="背景画像"
+        scale={scale}
+      />
 
       <ViewMoreTitle titleText="Learn" />
 
       <LearnPageTextBox>
-        <h6>『うぇぶくり』</h6>
+        <img
+          src="../../../public/images/logo_webCreate.svg"
+          alt="うぇぶくりロゴ"
+        />
+        <h6>うぇぶくり</h6>
         <p>
           弊社独自のカリキュラムであり、
           <br />
@@ -148,7 +161,9 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
 
         <WebcreateTextBox>
           <AssignmentExample>
-            <p>『個人課題例』</p>
+            <p>
+              <HighlightText>個人課題例</HighlightText>
+            </p>
             <ul>
               <li>レスポンシブHP作成</li>
               <li>JavaScript実装</li>
@@ -157,7 +172,9 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
           </AssignmentExample>
 
           <TeamDevelopment>
-            <p>『チーム開発』</p>
+            <p>
+              <HighlightText>チーム開発</HighlightText>
+            </p>
             <ul>
               <li>独自SNSの作成</li>
               <li>観葉植物ECサイトの作成</li>
@@ -181,10 +198,6 @@ const LearnPage = ({ onClose }: { onClose: () => void }) => {
           <EmployeeBoxes />
         </CenterWrapper>
       </EmployeeModel>
-
-      <CircleButtonWrapper>
-        <BackButton onClick={onClose} />
-      </CircleButtonWrapper>
     </LearnPageContainer>
   );
 };

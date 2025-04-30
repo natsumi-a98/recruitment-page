@@ -8,7 +8,7 @@ import media from "../../styles/mediaQuery";
 const ContentWrapper = styled.div`
   display: flex;
 
-  ${media.mobile`
+  ${media.tablet`
     flex-direction: column;
   `}
 `;
@@ -26,7 +26,7 @@ const BodyTextBlock = styled.div`
     height: 150px;
   }
 
-  ${media.mobile`
+  ${media.tablet`
       p {
         margin: 0;
       }
@@ -54,10 +54,20 @@ const RobotImage = styled.img`
   animation: ${sway} 1s ease-in-out infinite;
   z-index: 200;
 
-  ${media.mobile`
-    margin-top: 150px;
-    height: 50vw;
+  ${media.tablet`
+    margin-top: 200px;
+    height: 40vw;
+    right: 20px;
   `}
+`;
+
+const CircleButtonWrapperStyled = styled(CircleButtonWrapper)`
+  left: 15%;
+  margin-top: 30px;
+
+  ${media.tablet`
+      left: -20%;
+    `}
 `;
 
 interface SupportSectionProps {
@@ -76,9 +86,9 @@ const SupportSection = ({ onViewMoreClick }: SupportSectionProps) => {
           <img src="/images/chatgpt.png" alt="ChatGPTアイコン" />
           <img src="/images/chatbot.png" alt="チャットbotアイコン" />
         </BodyTextBlock>
-        <CircleButtonWrapper>
+        <CircleButtonWrapperStyled>
           <ViewMoreButton onClick={onViewMoreClick} />
-        </CircleButtonWrapper>
+        </CircleButtonWrapperStyled>
         <RobotImage src="/images/robot-left.png" alt="左を指しているロボット" />
       </ContentWrapper>
     </SectionLayout>

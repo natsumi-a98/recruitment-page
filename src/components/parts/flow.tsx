@@ -4,10 +4,10 @@ import SectionLayout from "../common/sectionLayout";
 import media from "../../styles/mediaQuery";
 
 const StepWrapper = styled.div`
-  width: 1140px;
+  width: 90%;
   margin: 0 auto;
 
-  ${media.mobile`
+  ${media.tablet`
     width: 90%;
   `}
 `;
@@ -20,7 +20,7 @@ const FlowContainer = styled.div`
     margin-bottom: 0;
   }
 
-  ${media.mobile`
+  ${media.tablet`
     align-items: center;
     margin-bottom: -20px;
   `}
@@ -34,7 +34,7 @@ const StepBox = styled.div`
   justify-content: center;
   align-items: center;
 
-  ${media.mobile`
+  ${media.tablet`
     width: 40%;
     height: auto;
   `}
@@ -51,17 +51,16 @@ const StepText = styled.div`
   font-family: "Abril Fatface", cursive;
   font-size: 32px;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 24px;
   `}
 `;
-
 
 const StepNumber = styled.div`
   font-family: "Abril Fatface", cursive;
   font-size: 48px;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 32px;
   `}
 `;
@@ -72,7 +71,7 @@ const ContentBox = styled.div`
   display: flex;
   align-items: center;
 
-  ${media.mobile`
+  ${media.tablet`
     width: 100%;
     height: auto;
   `}
@@ -81,7 +80,7 @@ const ContentBox = styled.div`
 const ContentInner = styled.div`
   margin-left: 90px;
 
-  ${media.mobile`
+  ${media.tablet`
     margin-left: 10px;
   `}
 `;
@@ -91,7 +90,7 @@ const ContentTitle = styled.div`
   margin-bottom: 14px;
   font-weight: bold;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 20px;
     margin-bottom: 0;
   `}
@@ -100,18 +99,17 @@ const ContentTitle = styled.div`
 const ContentDescription = styled.div`
   font-size: 20px;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 16px;
   `}
 `;
 
 const DividerWrapper = styled.div`
   position: relative;
-  width: 100%;
   height: 34px;
   margin: 40px auto 0 auto;
 
-  ${media.mobile`
+  ${media.tablet`
     height: 20px;
     margin-top: 20px;
   `}
@@ -129,7 +127,7 @@ const Triangle = styled.div`
   border-top: 34px solid #00e676;
   z-index: 5;
 
-  ${media.mobile`
+  ${media.tablet`
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
     border-top: 20px solid #00e676;
@@ -171,7 +169,6 @@ const steps = [
     description: ["業務開始"],
   },
 ];
-
 
 const FlowSection = () => {
   return (

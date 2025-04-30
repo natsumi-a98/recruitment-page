@@ -25,25 +25,19 @@ const Frame = styled.div`
   position: relative;
   margin-bottom: 80px;
 
-  ${media.mobile`
+  ${media.tablet`
     width: 98%;
-    height: 370px;
     flex-direction: column;
-    margin-bottom: 40px;
+    margin-bottom: 0;
   `}
 `;
 
 const LeftImageArea = styled.div`
   position: relative;
-  width: 594px;
-  height: 594px;
+  width: 50%;
+  height: auto;
 
-  ${media.mobile`
-    width: 45%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
+  ${media.tablet`
   `}
 `;
 
@@ -62,10 +56,11 @@ const CloseButton = styled(BaseButton)`
   font-size: 16px;
   border-radius: 17.5px;
 
-  ${media.mobile`
-    position: relative;
-    left: 10px;
-    bottom: 0;
+  ${media.tablet`
+    top: 10px;
+    right: 15px;
+    bottom: auto;
+    left: auto;
   `}
 `;
 
@@ -76,12 +71,18 @@ const TagWrapper = styled.div`
   display: flex;
   gap: 8px;
   z-index: 2;
+
+  ${media.tablet`
+    position: relative;
+    top: 0;
+    left: 5px;
+  `}
 `;
 
 const NameAgeText = styled.span`
   padding: 4px 8px;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 12px;
     padding: 3px 6px;
   `}
@@ -89,10 +90,9 @@ const NameAgeText = styled.span`
 
 const JobTag = styled.span`
   background-color: #00e676;
-  color: #000;
   padding: 4px 8px;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 12px;
     padding: 3px 6px;
   `}
@@ -105,17 +105,18 @@ const RightContent = styled.div`
   overflow-y: auto;
   position: relative;
 
-  ${media.mobile`
-    padding: 20px;
-    margin-top: 40px;
-    margin-left: 45%;
+  ${media.tablet`
+    padding: 0 15px;
+    margin-top: 20px;
+    margin-left: 0;
+    width: 100%;
   `}
 `;
 
 const Section = styled.div`
   margin-bottom: 40px;
 
-  ${media.mobile`
+  ${media.tablet`
     margin-bottom: 10px;
   `}
 `;
@@ -126,17 +127,17 @@ const SectionTitle = styled.p`
   border-bottom: 3px solid #0e0e0e;
   margin: 0 0 8px 0;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 16px;
+    border-bottom: 2px solid #0e0e0e;
   `}
 `;
 
 const SectionText = styled.p`
   font-size: 20px;
   margin: 0;
-  line-height: 1.6;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 14px;
   `}
 `;
@@ -156,11 +157,12 @@ const EmployeeDetailFrame = ({
     <Frame>
       <LeftImageArea>
         <Photo src={imageUrl} alt="社員画像" />
-        <CloseButton onClick={onClose}>
-          Close
-          <KeyboardArrowDownIcon />
-        </CloseButton>
       </LeftImageArea>
+
+      <CloseButton onClick={onClose}>
+        Close
+        <KeyboardArrowDownIcon sx={{ fontSize: 28 }} />
+      </CloseButton>
 
       <TagWrapper>
         <NameAgeText>

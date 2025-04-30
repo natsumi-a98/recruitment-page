@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "../../styles/mediaQuery";
 
 const BaseButton = styled.button`
   display: flex;
@@ -12,10 +13,21 @@ const BaseButton = styled.button`
   cursor: pointer;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
+  box-shadow: 0 5px 0 #0e0e0e;
+
+  ${media.tablet`
+    box-shadow: 0 3px 0 #0e0e0e;
+  `}
 
   &:hover {
     background: #00aeef;
     color: #0e0e0e;
+    transform: translateY(5px);
+    box-shadow: none;
+
+    ${media.tablet`
+      transform: translateY(3px);
+  `}
   }
 `;
 

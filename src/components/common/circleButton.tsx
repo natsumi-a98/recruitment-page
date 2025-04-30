@@ -12,18 +12,10 @@ const CircleButton = styled(BaseButton)<{ onClick?: () => void }>`
   font-weight: normal;
   flex-direction: row;
 
-  svg {
-    font-size: 32px !important;
-  }
-
-  ${media.mobile`
-    width: 190px;
-    height: 190px;
-    font-size: 24px;
-
-    svg {
-      font-size: 24px !important;
-    }
+  ${media.tablet`
+    width: 150px;
+    height: 150px;
+    font-size: 20px;
   `}
 `;
 

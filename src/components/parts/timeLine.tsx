@@ -22,7 +22,14 @@ const events = [
 
 const ExampleTimeline = () => {
   return (
-    <Box sx={{ width: "350px" }}>
+    <Box
+      sx={{
+        width: {
+          sx: 250,
+          md: 350,
+        },
+      }}
+    >
       {/* MUIのTimelineコンポーネントでイベント一覧を表示 */}
       <Timeline sx={{ margin: "0", padding: "0" }}>
         {/* 各イベントを1つずつタイムラインアイテムとして表示 */}

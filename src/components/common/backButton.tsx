@@ -8,7 +8,12 @@ interface BackButtonProps {
 const BackButton = ({ onClick }: BackButtonProps) => {
   return (
     <CircleButton onClick={onClick}>
-      <ArrowBackIosIcon />
+      <ArrowBackIosIcon sx={{
+        fontSize: {
+          sx: 24,
+          sm: 32,
+        },
+      }}/>
       BACK
     </CircleButton>
   );

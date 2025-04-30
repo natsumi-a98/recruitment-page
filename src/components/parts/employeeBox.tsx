@@ -19,7 +19,7 @@ const Box = styled.div`
   border: 3px solid #0e0e0e;
   border-radius: 30px;
 
-  ${media.mobile`
+  ${media.tablet`
       width: 160px;
       height: 160px;
   `}
@@ -39,16 +39,18 @@ const InfoWrapper = styled.div`
   gap: 5px;
   align-items: center;
 
-  ${media.mobile`
+  ${media.tablet`
     bottom: 40px;
+    right: 8px;
   `}
 `;
 
 const NameAgeText = styled.span`
   font-size: 12px;
   background-color: #ffffff;
+  padding: 2px 6px;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 8px;
   `}
 `;
@@ -56,10 +58,9 @@ const NameAgeText = styled.span`
 const JobTag = styled.span`
   font-size: 12px;
   background-color: #00e676;
-  color: #000;
   padding: 2px 6px;
 
-  ${media.mobile`
+  ${media.tablet`
     font-size: 8px;
   `}
 `;
@@ -73,23 +74,20 @@ const ClickButton = styled(BaseButton)`
   font-size: 16px;
   border-radius: 17.5px;
 
-  ${media.mobile`
+  ${media.tablet`
     width: 80px;
     height: 25px;
     font-size: 12px;
   `}
 `;
 
-const ArrowForwardIosIconStyled = styled(ArrowForwardIosIcon)`
-  font-size: 16px !important;
-  margin: 0;
-
-  ${media.mobile`
-    font-size: 12px !important;
-  `}
-`;
-
-const EmployeeBox = ({ imageUrl, name, age, job, onClick }: EmployeeBoxProps) => {
+const EmployeeBox = ({
+  imageUrl,
+  name,
+  age,
+  job,
+  onClick,
+}: EmployeeBoxProps) => {
   return (
     <Box>
       <EmployeeImage src={imageUrl} alt="社員写真" />
@@ -101,7 +99,15 @@ const EmployeeBox = ({ imageUrl, name, age, job, onClick }: EmployeeBoxProps) =>
         <JobTag>{job}</JobTag>
       </InfoWrapper>
       <ClickButton onClick={onClick}>
-        Click! <ArrowForwardIosIconStyled />
+        Click!{" "}
+        <ArrowForwardIosIcon
+          sx={{
+            fontSize: {
+              xs: 12,
+              sm: 16,
+            },
+          }}
+        />
       </ClickButton>
     </Box>
   );
