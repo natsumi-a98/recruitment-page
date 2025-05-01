@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import bananaImage from "../../../public/images/banana.png";
-import { MOBILE_BREAKPOINT } from "../../constants/breakpoints";
+import { SMALL_BREAKPOINT } from "../../constants/breakpoints";
 
 // バナナがデスクトップ画面で落ちるアニメーション（PC）
 const fallDesktop = keyframes`
@@ -56,7 +56,7 @@ const BananaRain = () => {
   const [bananas, setBananas] = useState<BananaProps[]>([]);
   // 画面幅によってモバイルかどうか判定
   const isMobile =
-    typeof window !== "undefined" && window.innerWidth <= MOBILE_BREAKPOINT;
+    typeof window !== "undefined" && window.innerWidth <= SMALL_BREAKPOINT;
 
   useEffect(() => {
     // 一定間隔で新しいバナナを生成する interval 設定

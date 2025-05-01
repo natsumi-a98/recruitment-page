@@ -12,6 +12,10 @@ const navItems = [
   { label: "Flow", id: "flow-section" },
 ];
 
+interface HamburgerIconProps {
+  $isOpen: boolean;
+}
+
 interface MobileNavProps {
   $isOpen: boolean;
 }
@@ -23,15 +27,18 @@ const HeaderWrapper = styled.header`
   background-color: #ffffff;
   z-index: 1000;
 
-  ${media.tablet`
-    height: 55px;
-    background-color: transparent;
+  ${media.lg`
+    height: 100px;
     position: relative;
+  `}
+
+  ${media.md`
+    background-color: transparent;
+    height: 55px;
   `}
 `;
 
 const HeaderContainer = styled.div`
-  max-width: 1300px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -39,7 +46,7 @@ const HeaderContainer = styled.div`
   height: 100px;
   z-index: 1000;
 
-  ${media.tablet`
+  ${media.md`
     height: 55px;
   `}
 `;
@@ -48,14 +55,18 @@ const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  ${media.tablet`
+  ${media.md`
     position: relative;
   `}
 `;
 
 const Logo = styled.img`
   width: auto;
-  height: 42px;
+  height: 60px;
+
+  ${media.md`
+    height: 42px;
+  `}
 `;
 
 const Nav = styled.nav`
@@ -66,8 +77,18 @@ const Nav = styled.nav`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  transition: gap 0.5s ease-in-out;
 
-  ${media.tablet`
+  ${media.xl`
+    gap: 18px;
+    transition: gap 0.5s ease-in-out;
+  `}
+
+  ${media.lg`
+    display: none;
+  `}
+
+  ${media.md`
     display: none;
   `}
 `;
@@ -95,15 +116,15 @@ const NavItem = styled.li`
   }
 `;
 
-const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
+const HamburgerIcon = styled.div<HamburgerIconProps>`
   display: none;
 
-  ${media.tablet`
+  ${media.lg`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 55px;
-    height: 55px;
+    width: 100px;
+    height: 100px;
     background-color: #ffffff;
     border: 2px solid #0e0e0e;
     position: fixed;
@@ -111,6 +132,11 @@ const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
     right: 0;
     z-index: 2000;
     cursor: pointer;
+  `}
+
+  ${media.md`
+    width: 55px;
+    height: 55px;
   `}
 
   span {
@@ -152,7 +178,7 @@ const MobileNav = styled.div<MobileNavProps>`
   transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out,
     visibility 0.3s ease-in-out;
 
-  ${media.tablet`
+  ${media.md`
     position: fixed;
   `}
 `;

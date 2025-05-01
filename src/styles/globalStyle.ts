@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    max-width: 1300px;
+    max-width: 1180px;
     margin: 0 auto;
   }
 
@@ -83,8 +83,8 @@ const GlobalStyle = createGlobalStyle`
   }
 }
 
-  /* モバイル版レイアウト */
-  ${media.tablet`
+  /* 768px以下 */
+  ${media.md`
     body {
       font-size: 16px;
       letter-spacing: 0.05em;

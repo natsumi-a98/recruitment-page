@@ -38,7 +38,7 @@ const RobotImage = styled.img.withConfig({
       animation: ${SlideInFromBottom} 1s ease-out forwards;
     `}
 
-  ${media.tablet`
+  ${media.md`
     height: 40vw;
     bottom: -50px;
     left: 10px;

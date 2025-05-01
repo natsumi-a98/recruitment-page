@@ -91,14 +91,14 @@ const listData = [
 const AfterTrainingContainer = styled.div`
   width: 80%;
   margin: 0 auto;
-  ${media.tablet`
+  ${media.md`
     width: 100%;
   `}
 `;
 
 const StyledAccordionSummary = styled(AccordionSummary)`
   font-size: 20px;
-  ${media.tablet`
+  ${media.md`
     font-size: 16px;
   `}
 `;

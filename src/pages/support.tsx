@@ -15,7 +15,7 @@ const SupportPageContainer = styled.div``;
 const HighlightedHeading = styled.h6`
   line-height: 1.5;
 
-  ${media.tablet`
+  ${media.md`
     span {
       display: block;
     }
@@ -40,7 +40,7 @@ const SliderWrapper = styled.div`
   gap: 40px;
   padding: 0 24px;
 
-  ${media.tablet`
+  ${media.md`
     flex-direction: column;
     overflow: visible;
     gap: 30px;
@@ -51,7 +51,7 @@ const SliderWrapper = styled.div`
 const SlideItem = styled.div`
   flex: 0 0 100%;
 
-  ${media.tablet`
+  ${media.md`
     flex: none;
     width: 100%;
   `}
@@ -67,7 +67,7 @@ const ArrowButton = styled.button`
   padding: 10px;
   cursor: pointer;
 
-  ${media.tablet`
+  ${media.md`
     display: none;
   `}
 `;
@@ -91,7 +91,7 @@ const RotatingRobot = styled.img<{ $isPaused: boolean }>`
     { $isPaused } // isPaused が true なら常に止める。false の場合は PC のみ hover で停止
   ) => ($isPaused ? "paused" : "running")};
 
-  ${media.tablet`
+  ${media.md`
     right: 0;
   `}
 
@@ -166,7 +166,8 @@ const SupportPage = () => {
           <span>キャッチアップする能力</span>
         </HighlightedHeading>
         <p>
-          私たちの育成カリキュラムは、エンジニアとして必要な<HighlightText>キャッチアップ力</HighlightText>を
+          私たちの育成カリキュラムは、エンジニアとして必要な
+          <HighlightText>キャッチアップ力</HighlightText>を
           <br />
           弊社日々の業務と並行して無理なく身につけられるように設計されています。
         </p>
@@ -175,7 +176,9 @@ const SupportPage = () => {
           <br />
           課題を発見し、改善に向けて提案できる力も養われていきます。
         </p>
-        <p>こうしたスキルは、より専門性の高いエンジニアとしての成長を支えます。</p>
+        <p>
+          こうしたスキルは、より専門性の高いエンジニアとしての成長を支えます。
+        </p>
         <p>
           スキルを高めたい経験者の方はもちろん、
           <br />

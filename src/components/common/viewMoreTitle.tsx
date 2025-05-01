@@ -8,7 +8,7 @@ interface ViewMoreTitleProps {
 const ViewMoreTitleWrapper = styled.div`
   margin: 80px 0;
 
-  ${media.tablet`
+  ${media.md`
     margin: 0 0 40px 0;
   `}
 `;

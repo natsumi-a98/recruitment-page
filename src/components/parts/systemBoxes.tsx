@@ -10,7 +10,7 @@ const SystemBoxesWrapper = styled.div`
   gap: 40px;
   overflow-x: auto;
 
-  ${media.tablet`
+  ${media.md`
     gap: 15px;
   `}
 `;

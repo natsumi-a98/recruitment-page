@@ -15,7 +15,7 @@ const BaseButton = styled.button`
   transition: 0.5s all;
   box-shadow: 0 5px 0 #0e0e0e;
 
-  ${media.tablet`
+  ${media.md`
     box-shadow: 0 3px 0 #0e0e0e;
   `}
 
@@ -25,7 +25,7 @@ const BaseButton = styled.button`
     transform: translateY(5px);
     box-shadow: none;
 
-    ${media.tablet`
+    ${media.md`
       transform: translateY(3px);
   `}
   }
