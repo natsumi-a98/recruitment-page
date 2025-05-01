@@ -90,7 +90,7 @@ const RobotImage = styled.img.withConfig({
 })<{ animate: boolean }>`
   position: absolute;
   margin: 0 calc(50% - 50vw);
-  bottom: 200px;
+  bottom: 120px;
   right: 0;
   height: 35vw;
   z-index: 0;

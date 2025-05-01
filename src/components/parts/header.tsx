@@ -25,15 +25,17 @@ const HeaderWrapper = styled.header`
   height: 100px;
   position: fixed;
   background-color: #ffffff;
+  padding: 0 20px;
   z-index: 1000;
 
   ${media.lg`
     height: 100px;
     position: relative;
+    background-color: transparent;
+    padding: 0;
   `}
 
   ${media.md`
-    background-color: transparent;
     height: 55px;
   `}
 `;

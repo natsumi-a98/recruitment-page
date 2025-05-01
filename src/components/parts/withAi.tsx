@@ -8,6 +8,10 @@ import HighlightText from "../common/highlightText";
 const WithAIContainer = styled.section`
   position: relative;
   height: 90vh;
+
+  ${media.md`
+    height: 50vh;
+  `}
 `;
 
 const WithAiSectionTextBlock = styled.div``;
@@ -37,6 +41,12 @@ const RobotImage = styled.img.withConfig({
     css`
       animation: ${SlideInFromBottom} 1s ease-out forwards;
     `}
+
+  ${media.lg`
+    height: 40vw;
+    bottom: -50px;
+    left: 10px;
+  `}
 
   ${media.md`
     height: 40vw;

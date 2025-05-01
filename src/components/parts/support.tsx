@@ -59,6 +59,18 @@ const RobotImage = styled.img`
     height: 40vw;
     right: 20px;
   `}
+
+  ${media.md`
+    margin-top: 150px;
+    height: 40vw;
+    right: 20px;
+  `}
+
+  ${media.sm`
+    margin-top: 230px;
+    height: 40vw;
+    right: 20px;
+  `}
 `;
 
 const CircleButtonWrapperStyled = styled(CircleButtonWrapper)`

@@ -92,6 +92,7 @@ const sway = keyframes`
   50% { transform: translateX(15px); }
   100% { transform: translateX(0); }
 `;
+
 const GorillaRobotImage = styled.img`
   position: absolute;
   margin: 0 calc(50% - 50vw);
@@ -103,6 +104,18 @@ const GorillaRobotImage = styled.img`
   ${media.xl`
     margin-top: 300px;
     height: 45vw;
+    right: 20px;
+  `}
+
+  ${media.md`
+    margin-top: 150px;
+    height: 40vw;
+    right: 20px;
+  `}
+
+  ${media.sm`
+    margin-top: 230px;
+    height: 40vw;
     right: 20px;
   `}
 `;
