@@ -1,11 +1,11 @@
 import { createTheme } from "@mui/material/styles";
-import { MOBILE_BREAKPOINT } from "./breakpoints";
+import { SMALL_BREAKPOINT } from "./breakpoints";
 
 const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: MOBILE_BREAKPOINT,
+      sm: SMALL_BREAKPOINT,
       md: 900,
       lg: 1200,
       xl: 1536,

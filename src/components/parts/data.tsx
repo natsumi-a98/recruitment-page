@@ -3,28 +3,28 @@ import SectionTitle from "../common/sectionTitle";
 import SectionLayout from "../common/sectionLayout";
 import { useEffect, useState } from "react";
 import media from "../../styles/mediaQuery";
-import { MOBILE_BREAKPOINT } from "../../constants/breakpoints";
+import { SMALL_BREAKPOINT } from "../../constants/breakpoints";
 import AnnotationText from "../common/annotationText";
 
 const ImageWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 75px;
+  gap: 20px;
   flex-wrap: wrap;
-  max-width: 1140px;
+  max-width: 940px;
   margin: 0 auto;
 
-  ${media.tablet`
+  ${media.md`
     gap: 20px;
     max-width: 340px;
   `}
 `;
 
 const ImageItem = styled.img`
-  height: 330px;
+  height: 300px;
   object-fit: cover;
 
-  ${media.tablet`
+  ${media.md`
     height: 160px;
   `}
 `;
@@ -34,7 +34,7 @@ const DataSection = () => {
 
   useEffect(() => {
     const checkIsMobile = () =>
-      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+      setIsMobile(window.innerWidth <= SMALL_BREAKPOINT);
     checkIsMobile();
 
     window.addEventListener("resize", checkIsMobile);

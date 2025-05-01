@@ -16,7 +16,7 @@ const SectionContainer = styled.section<SectionLayoutProps>`
   max-width: 1300px;
   margin: 0 auto;
 
-  ${media.tablet`
+  ${media.md`
     padding-top: 100px;
   `}
 `;

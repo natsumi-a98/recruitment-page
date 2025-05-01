@@ -14,12 +14,12 @@ const Box = styled.div`
   flex-shrink: 0;
   margin: 0 auto;
 
-  ${media.tablet`
+  ${media.md`
     width: 60%;
     padding: 15px;
   `}
 
-  ${media.mobile`
+  ${media.sm`
     width: 80%;
     padding: 15px;
   `}
@@ -30,7 +30,7 @@ const Title = styled.p`
   font-weight: 700;
   margin: 30px 0;
 
-  ${media.tablet`
+  ${media.md`
     margin: 15px 0;
   `}
 `;
@@ -51,7 +51,7 @@ const Icon = styled.img`
   height: 150px;
   margin-top: auto;
 
-  ${media.tablet`
+  ${media.md`
     height: 130px;
   `}
 `;

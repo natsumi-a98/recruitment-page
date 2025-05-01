@@ -13,6 +13,7 @@ const commonStyles = css`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 `;
 
 // PC版フッター用エントリーボタン
@@ -23,7 +24,7 @@ const LargeButton = styled(BaseButton)`
   border-radius: 90px;
   font-size: 48px;
 
-  ${media.tablet`
+  ${media.md`
     display: none;
   `}
 `;
@@ -36,7 +37,11 @@ const MediumButton = styled(BaseButton)`
   border-radius: 30px;
   font-size: 32px;
 
-  ${media.tablet`
+  ${media.lg`
+    display: none;
+  `}
+
+  ${media.md`
     display: none;
   `}
 `;
@@ -45,7 +50,7 @@ const MediumButton = styled(BaseButton)`
 const SmallButton = styled(BaseButton)`
   display: none;
 
-  ${media.tablet`
+  ${media.md`
     ${commonStyles};
     padding: 0 40px;
     height: 50px;
@@ -58,7 +63,7 @@ const SmallButton = styled(BaseButton)`
 const TinyButton = styled(BaseButton)`
   display: none;
 
-  ${media.tablet`
+  ${media.md`
     ${commonStyles};
     width: 130px;
     height: 35px;

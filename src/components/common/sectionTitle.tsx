@@ -10,7 +10,7 @@ const TitleWrapper = styled.div`
   position: relative;
   margin-bottom: 80px;
 
-  ${media.tablet`
+  ${media.md`
     margin-bottom: 24px;
   `}
 `;
@@ -33,7 +33,7 @@ const FrontTitle = styled.h3`
   left: 40px;
   z-index: 10;
 
-  ${media.tablet`
+  ${media.md`
     top: 16px;
     left: 16px;
   `}

@@ -8,7 +8,7 @@ import media from "../../styles/mediaQuery";
 const ContentWrapper = styled.div`
   display: flex;
 
-  ${media.tablet`
+  ${media.xl`
     flex-direction: column;
   `}
 `;
@@ -26,7 +26,7 @@ const BodyTextBlock = styled.div`
     height: 150px;
   }
 
-  ${media.tablet`
+  ${media.md`
       p {
         margin: 0;
       }
@@ -54,20 +54,24 @@ const RobotImage = styled.img`
   animation: ${sway} 1s ease-in-out infinite;
   z-index: 200;
 
-  ${media.tablet`
-    margin-top: 200px;
+  ${media.xl`
+    margin-top: 300px;
     height: 40vw;
     right: 20px;
   `}
 `;
 
 const CircleButtonWrapperStyled = styled(CircleButtonWrapper)`
-  left: 15%;
+  left: 0;
   margin-top: 30px;
 
-  ${media.tablet`
-      left: -20%;
-    `}
+  ${media.xl`
+    left: -20%;
+  `}
+
+  ${media.md`
+    left: -20%;
+  `}
 `;
 
 interface SupportSectionProps {

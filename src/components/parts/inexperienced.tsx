@@ -9,7 +9,7 @@ const InexperiencedContainer = styled.div`
   align-items: flex-start;
   margin: 0 auto;
 
-  ${media.tablet`
+  ${media.md`
     flex-direction: column;
     width: 100%;
     align-items: center;

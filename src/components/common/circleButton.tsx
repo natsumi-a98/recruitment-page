@@ -12,7 +12,7 @@ const CircleButton = styled(BaseButton)<{ onClick?: () => void }>`
   font-weight: normal;
   flex-direction: row;
 
-  ${media.tablet`
+  ${media.md`
     width: 150px;
     height: 150px;
     font-size: 20px;

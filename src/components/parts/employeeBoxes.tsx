@@ -22,7 +22,7 @@ const EmployeeBoxesWrapper = styled.div`
   justify-content: center;
   margin-bottom: 80px;
 
-  ${media.tablet`
+  ${media.md`
     gap: 10px;
     margin-bottom: 40px;
   `}

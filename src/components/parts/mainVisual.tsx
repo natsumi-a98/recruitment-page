@@ -14,7 +14,7 @@ const MainVisualContainer = styled.section<{ id?: string }>`
   align-items: center;
   padding: 0;
 
-  ${media.tablet`
+  ${media.md`
     height: calc(100vh - 55px);
   `}
 `;
@@ -42,7 +42,7 @@ const BottomTextContainer = styled.div`
   left: 0;
   z-index: 5;
 
-  ${media.tablet`
+  ${media.md`
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -61,7 +61,7 @@ const DescriptionText = styled.p`
   margin-top: 10px;
   margin-bottom: 0;
 
-  ${media.tablet`
+  ${media.md`
     margin-bottom: 30px;
   `}
 `;
@@ -69,7 +69,7 @@ const DescriptionText = styled.p`
 const SpEntryButtonWrapper = styled.div`
   display: none;
 
-  ${media.tablet`
+  ${media.md`
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
@@ -102,7 +102,7 @@ const RobotImage = styled.img.withConfig({
       animation: ${SlideInFromRight} 1s ease-out forwards;
     `}
 
-  ${media.tablet`
+  ${media.md`
     height: 40vw;
     right: 0;
     top: 150px;
@@ -115,7 +115,7 @@ const ScrollDownIndicatorWrapper = styled.div`
   right: 0;
   z-index: 5;
 
-  ${media.tablet`
+  ${media.md`
     display: none;
   `}
 `;
@@ -165,7 +165,8 @@ const MainVisual = () => {
       <BottomTextContainer>
         <HashTagText>#AIを標準基準に</HashTagText>
         <DescriptionText>
-          AIを活用し変化に適応するだけでなく、主導する。<br/>
+          AIを活用し変化に適応するだけでなく、主導する。
+          <br />
           私たちは、その最前線に立つ人材を求めています。
         </DescriptionText>
         <SpEntryButtonWrapper>

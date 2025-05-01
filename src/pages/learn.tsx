@@ -25,7 +25,7 @@ const GorillaBackground = styled.img<{ scale: number }>`
   z-index: -1;
   pointer-events: none;
 
-  ${media.tablet`
+  ${media.md`
     bottom: 5%;
     width: 80%;
   `}
@@ -37,7 +37,7 @@ const LearnPageTextBox = styled.div`
     height: 100px;
   }
 
-  ${media.tablet`
+  ${media.md`
     img {
       width: auto;
       height: 60px;
@@ -49,7 +49,7 @@ const WebcreateContainer = styled.div`
   margin: 80px 0;
   display: flex;
 
-  ${media.tablet`
+  ${media.md`
     margin: 40px 0;
     flex-direction: column;
   `}
@@ -63,7 +63,7 @@ const WebcreatePng = styled.div`
     margin: 0;
   }
 
-  ${media.tablet`
+  ${media.md`
     img {
       width: 100%;
       height: auto;
@@ -86,7 +86,7 @@ const WebcreateTextBox = styled.div`
     font-size: 16px;
   }
 
-  ${media.tablet`
+  ${media.md`
     flex-direction: row;
     margin-left: 0;
 

@@ -7,7 +7,7 @@ const StepWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
 
-  ${media.tablet`
+  ${media.md`
     width: 90%;
   `}
 `;
@@ -20,7 +20,7 @@ const FlowContainer = styled.div`
     margin-bottom: 0;
   }
 
-  ${media.tablet`
+  ${media.md`
     align-items: center;
     margin-bottom: -20px;
   `}
@@ -34,7 +34,7 @@ const StepBox = styled.div`
   justify-content: center;
   align-items: center;
 
-  ${media.tablet`
+  ${media.md`
     width: 40%;
     height: auto;
   `}
@@ -51,7 +51,7 @@ const StepText = styled.div`
   font-family: "Abril Fatface", cursive;
   font-size: 32px;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 24px;
   `}
 `;
@@ -60,7 +60,7 @@ const StepNumber = styled.div`
   font-family: "Abril Fatface", cursive;
   font-size: 48px;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 32px;
   `}
 `;
@@ -71,7 +71,7 @@ const ContentBox = styled.div`
   display: flex;
   align-items: center;
 
-  ${media.tablet`
+  ${media.md`
     width: 100%;
     height: auto;
   `}
@@ -80,7 +80,7 @@ const ContentBox = styled.div`
 const ContentInner = styled.div`
   margin-left: 90px;
 
-  ${media.tablet`
+  ${media.md`
     margin-left: 10px;
   `}
 `;
@@ -90,7 +90,7 @@ const ContentTitle = styled.div`
   margin-bottom: 14px;
   font-weight: bold;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 20px;
     margin-bottom: 0;
   `}
@@ -99,7 +99,7 @@ const ContentTitle = styled.div`
 const ContentDescription = styled.div`
   font-size: 20px;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 16px;
   `}
 `;
@@ -109,7 +109,7 @@ const DividerWrapper = styled.div`
   height: 34px;
   margin: 40px auto 0 auto;
 
-  ${media.tablet`
+  ${media.md`
     height: 20px;
     margin-top: 20px;
   `}
@@ -127,7 +127,7 @@ const Triangle = styled.div`
   border-top: 34px solid #00e676;
   z-index: 5;
 
-  ${media.tablet`
+  ${media.md`
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
     border-top: 20px solid #00e676;

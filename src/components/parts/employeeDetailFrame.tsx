@@ -25,7 +25,7 @@ const Frame = styled.div`
   position: relative;
   margin-bottom: 80px;
 
-  ${media.tablet`
+  ${media.md`
     width: 98%;
     flex-direction: column;
     margin-bottom: 0;
@@ -37,7 +37,7 @@ const LeftImageArea = styled.div`
   width: 50%;
   height: auto;
 
-  ${media.tablet`
+  ${media.md`
   `}
 `;
 
@@ -56,7 +56,7 @@ const CloseButton = styled(BaseButton)`
   font-size: 16px;
   border-radius: 17.5px;
 
-  ${media.tablet`
+  ${media.md`
     top: 10px;
     right: 15px;
     bottom: auto;
@@ -72,7 +72,7 @@ const TagWrapper = styled.div`
   gap: 8px;
   z-index: 2;
 
-  ${media.tablet`
+  ${media.md`
     position: relative;
     top: 0;
     left: 5px;
@@ -82,7 +82,7 @@ const TagWrapper = styled.div`
 const NameAgeText = styled.span`
   padding: 4px 8px;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 12px;
     padding: 3px 6px;
   `}
@@ -92,7 +92,7 @@ const JobTag = styled.span`
   background-color: #00e676;
   padding: 4px 8px;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 12px;
     padding: 3px 6px;
   `}
@@ -105,7 +105,7 @@ const RightContent = styled.div`
   overflow-y: auto;
   position: relative;
 
-  ${media.tablet`
+  ${media.md`
     padding: 0 15px;
     margin-top: 20px;
     margin-left: 0;
@@ -116,7 +116,7 @@ const RightContent = styled.div`
 const Section = styled.div`
   margin-bottom: 40px;
 
-  ${media.tablet`
+  ${media.md`
     margin-bottom: 10px;
   `}
 `;
@@ -127,7 +127,7 @@ const SectionTitle = styled.p`
   border-bottom: 3px solid #0e0e0e;
   margin: 0 0 8px 0;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 16px;
     border-bottom: 2px solid #0e0e0e;
   `}
@@ -137,7 +137,7 @@ const SectionText = styled.p`
   font-size: 20px;
   margin: 0;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 14px;
   `}
 `;

@@ -18,18 +18,22 @@ const FooterContainer = styled.footer`
   height: 660px;
   margin: 0 calc(50% - 50vw);
   margin-top: 80px;
+  padding: 20px;
   position: relative;
   background-color: #0e0e0e;
   color: #ffffff;
 
-  ${media.tablet`
+  ${media.md`
+    height: 200px;
+  `}
+
+  ${media.sm`
     height: 150px;
     margin-top: 40px;
   `}
 `;
 
 const FooterItem = styled.div`
-  max-width: 1300px;
   height: 100%;
   margin: 0 auto;
   position: relative;
@@ -46,9 +50,8 @@ const CenterButtonWrapper = styled.div`
 const Message = styled.div`
   font-size: 48px;
   margin-bottom: 20px;
-  text-shadow: 5px 5px 10px #000000;
 
-  ${media.tablet`
+  ${media.md`
     display: none;
   `}
 `;
@@ -60,7 +63,7 @@ const FooterLinkWrapper = styled.div`
   margin-top: 50px;
   text-align: center;
 
-  ${media.tablet`
+  ${media.md`
     display: none;
   `}
 `;
@@ -90,8 +93,15 @@ const Nav = styled.nav`
   transform: translateY(-50%);
   list-style: none;
   padding: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 
-  ${media.tablet`
+  ${media.lg`
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  `}
+
+  ${media.md`
     display: none;
   `}
 `;
@@ -129,13 +139,20 @@ const NavItem = styled.li`
 const AccessInfo = styled.div`
   position: absolute;
   font-size: 14px;
-  bottom: 20px;
+  bottom: 0;
   text-align: left;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
   p {
     margin: 20px 0 0;
   }
 
-  ${media.tablet`
+  @media (max-width: 798px) {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  ${media.md`
     display: none;
   `}
 `;
@@ -144,10 +161,10 @@ const Copyright = styled.small`
   position: absolute;
   font-size: 14px;
   right: 0;
-  bottom: 20px;
+  bottom: 0;
   text-align: right;
 
-  ${media.tablet`
+  ${media.md`
     right: 5px;
     bottom: 0;
   `}
@@ -174,14 +191,20 @@ const RobotImage = styled.img`
   animation: ${sway} 1.5s ease-in-out infinite;
   z-index: 200;
 
-  ${media.tablet`
+  ${media.xl`
+    bottom: 180px;
+    height: 20vw;
+    animation: ${swayMobile} 1.5s ease-in-out infinite;
+  `}
+
+  ${media.md`
     left: 80px;
     bottom: 20px;
     height: 20vw;
     animation: ${swayMobile} 1.5s ease-in-out infinite;
   `}
 
-  ${media.mobile`
+  ${media.sm`
     left: 10%;
   `}
 `;
@@ -193,6 +216,7 @@ const Footer = () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <FooterContainer>
       <FooterItem>

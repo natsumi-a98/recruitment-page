@@ -61,7 +61,7 @@ const CloseButton = styled.button`
   background-color: #00e676;
   border-radius: 50%;
 
-  ${media.tablet`
+  ${media.md`
     top: 0;
     padding: 8px;
   `}
@@ -75,7 +75,7 @@ const ScrollDownIndicatorWrapper = styled.div<{ $hide: boolean }>`
   opacity: ${({ $hide: hide }) => (hide ? 0 : 1)};
   transition: opacity 0.5s ease-in-out;
 
-  ${media.tablet`
+  ${media.md`
     display: none;
   `}
 `;
@@ -86,7 +86,7 @@ const CircleButtonWrapperStyled = styled(CircleButtonWrapper)`
   margin: 80px 0;
   z-index: 2;
 
-  ${media.tablet`
+  ${media.md`
     margin: 40px 0;
   `}
 `;
@@ -106,7 +106,7 @@ const ModalContent = styled.div.withConfig({
   position: relative;
   animation: ${({ isClosing }) => (isClosing ? fadeOut : fadeIn)} 0.3s ease-out;
 
-  ${media.tablet`
+  ${media.md`
     padding: 20px;
     border-radius: 24px;
     width: 98vw;
