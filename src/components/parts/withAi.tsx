@@ -43,15 +43,13 @@ const RobotImage = styled.img.withConfig({
     `}
 
   ${media.lg`
-    height: 40vw;
-    bottom: -50px;
+    bottom: -150px;
     left: 10px;
   `}
 
   ${media.md`
-    height: 40vw;
-    bottom: -50px;
-    left: 10px;
+    height: 25vw;
+    bottom: -100px;
   `}
 `;
 
