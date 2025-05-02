@@ -141,6 +141,10 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   background-color: #0e0e0e;
+
+  ${media.lg`
+    height: 0.5px;
+  `}
 `;
 
 const steps = [
