@@ -5,7 +5,7 @@ import { useSwipeable } from "react-swipeable";
 import { AiOutlineLeft, AiOutlineRight, AiOutlineDownload } from "react-icons/ai";
 import media from "../../styles/mediaQuery";
 
-pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 
 const Section = styled.section`
   width: 100%;
