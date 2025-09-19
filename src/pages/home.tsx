@@ -8,6 +8,7 @@ import FlowSection from "../components/parts/flow";
 import Header from "../components/parts/header";
 import Footer from "../components/parts/footer";
 import Modal, { ModalKey } from "../components/common/modal";
+import PdfViewer from "../components/parts/pdfViewer";
 
 const HomePage = () => {
   // モーダルの状態
@@ -35,6 +36,7 @@ const HomePage = () => {
       <Header />
       <main>
         <MainVisual />
+        <PdfViewer />
         <WithAISection />
         <SupportSection onViewMoreClick={() => setModal("support")} />
         <LearnSection onViewMoreClick={() => setModal("learn")} />
