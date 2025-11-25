@@ -147,7 +147,7 @@ const LearnSection = ({ onViewMoreClick }: LearnSectionProps) => {
             弊社独自のカリキュラムで、環境構築からマンツーマン指導、チーム開発を通じて、エンジニアとしての基礎を確実に築けます。
           </p>
           <img
-            src="../../../public/images/logo_webCreate.svg"
+            src="/images/logo_webCreate.svg"
             alt="うぇぶくりロゴ"
           />
         </BodyTextBlock>

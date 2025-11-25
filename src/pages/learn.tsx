@@ -134,7 +134,7 @@ const LearnPage = ({ scrollTop }: LearnPageProps) => {
 
       <LearnPageTextBox>
         <img
-          src="../../../public/images/logo_webCreate.svg"
+          src="/images/logo_webCreate.svg"
           alt="うぇぶくりロゴ"
         />
         <h6>うぇぶくり</h6>
